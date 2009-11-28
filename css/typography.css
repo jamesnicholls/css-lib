@@ -15,8 +15,8 @@ acronym,
     font-style: italic;
 }
 
-.number {
-    vertical-align: text-top;
+.cufon {
+    vertical-align: super;
 }
 
 .fraction {

@@ -1,0 +1,30 @@
+/*
+Title: Vertical alignment
+Description: Cross browser compatible vertical alignment
+Version: 1.0
+Author: James Nicholls
+Author URI:
+*/
+
+/**
+ * TODO Work on the naming a bit
+ */
+
+.frame {
+    position: relative;
+    display: table;
+}
+
+.frame .content_wrapper {
+    display: table-cell;
+    vertical-align: middle;
+    /* Hacks for IE */
+    *position: absolute;
+    *top: 50%;
+}
+
+.frame img {
+    /* Hacks for IE */
+    *position: relative;
+    *top: -50%;
+}

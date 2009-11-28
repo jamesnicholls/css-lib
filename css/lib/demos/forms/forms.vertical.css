@@ -1,0 +1,140 @@
+/*
+Forms CSS - Vertical Layout
+Description: A framework for the basic layout of form elements. It is based on the three variations of form layout propsed by Luke Wroblewski here: http://www.uie.com/articles/web_forms/. This version differs from version 1 in that it assumes list-items are used to wrap label-input/select/textarea pairs.
+Version: 2.1
+Author: James Nicholls
+Author URI:
+*/
+
+form {
+	width: 60em;
+	/*/border: 1px solid red;/**/
+}
+
+label, select, input, textarea {
+	display: block;
+	/*/float: left;/**/
+	margin-bottom: 1em;
+}
+
+label {
+	width: 49%;
+	/*/text-align: right;/**/
+	padding-right: 1%;
+	/**/font-weight: bold;/**/
+	/**/margin-bottom: 0;/**/
+}
+
+label:after {
+	/**/content: ":";/**/
+}
+
+form p {
+	clear: left;
+	/*/margin-left: 50%;/**/
+}
+
+/*-------------------------------------------------------------------
+=BUTTONS
+-------------------------------------------------------------------*/
+button#primary_action {
+	/*/margin-left: 50%;
+	margin-right: -50%;/**/
+	font-weight: bold;
+}
+
+button.secondary_action {
+	color: #666;
+	/*/margin-left: 52%;
+	margin-right: -52%;/**/
+	margin-left: 2%;
+}
+
+form li {
+	clear: both;
+}
+
+form li.error input, form li.error textarea {
+	border: 1px solid #EF1D2A;
+	background-color: #fef;
+	color: inherit;
+}
+
+form li.option_set {
+	position: relative;
+}
+
+form li.option_set img.validation {
+	position: absolute;
+	top: 0;
+	right: 40%; /* This value is dependant on the line-length of the option_set's labels */
+}
+
+form li.error p {
+	color: #EF1D2A;
+	background-color: transparent;
+}
+
+form li.option_set p {
+	width: 49%;
+	padding-right: 1%;
+	float: left;
+	margin-left: 0;
+	/*/text-align: right;/**/
+	/**/font-weight: bold;/**/
+}
+
+form li.option_set p:after {
+	/**/content: ":";/**/
+}
+
+form li.option_set input, form li.option_set label {
+	position: relative;
+}
+
+form li.option_set label {
+	float: right;
+	width: 96%; /* Change to 95% for horizontal layouts? */
+	text-align: left;
+	clear: both;
+	margin-bottom: 0;
+	font-weight: normal;
+	/*/top: -1em;/**/
+}
+
+form li.option_set label:after {
+	content: "";
+}
+
+form li.option_set input {
+	float: left; /* Switch to float: right */
+	/*/margin-left: 50%;/**/
+	margin-bottom: 0;
+	/*/top: -1.3em;/**/
+}
+
+form li.option_set input:last-child { /* Won't work in most versions of IE */
+	margin-bottom: 1em;
+}
+
+/*-------------------------------------------------------------------
+=CLASSES
+-------------------------------------------------------------------*/
+form .default {
+	color: #999;
+	background-color: transparent;
+	font-style: oblique;
+}
+
+form .additional {
+	clear: left;
+	/*/margin-left: 50%;
+	margin-right: -50%;/*/
+	margin-top: -.5em;
+}
+
+form .hint {
+	font-size: .8em;
+	position: relative;
+	top: -.8em;
+}

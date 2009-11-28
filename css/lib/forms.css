@@ -1,0 +1,222 @@
+/*
+Forms CSS
+Description: A framework for the basic layout of form elements. It is based on the three variations of form layout propsed by Luke Wroblewski here: http://www.uie.com/articles/web_forms/. This version differs from version 1 in that it assumes list-items are used to wrap label-input/select/textarea pairs.
+Version: 2.0
+Author: James Nicholls
+Author URI:
+*/
+
+/*
+NOTES:
+To convert this layout to a left-aligned layout, simply comment out "text-align: right" under the "label" and "form li.option_set p" selectors.
+
+To convert this layout to a vertical layout:
+Comment out "float: left;" under the "label, select, input, textarea" selector.
+Comment out "text-align: right;" under the "label" selector.
+Uncomment "font-weight: bold" under the "label" selector.
+Uncomment "margin-bottom" under the "label" selector.
+Uncomment "content" rule under "label:after" selector.
+Uncomment "margin-left" under "form p" selector.
+Comment out left and right margins for "button#primary_action" selector.
+Comment out right margin for "button.secondary_action" selector and change left margin to 2%.
+Comment out left and right margins under the "form .additional" selector.
+Comment out "text-align: right" under "form li.option_set p" selector.
+Uncomment "font-weight: bold" under the "form li.option_set p" selector.
+Uncomment "content" rule under the "form li.option_set p:after" selector.
+Change "width" under the "form li.option_set label" selector to 96%.
+Comment out "top" rule under "form li.option_set label" selector.
+Comment out "margin-left" rule under "form li.option_set input" selector.
+Comment out "top" rule under form "li.option_set input" selector.
+*/
+
+form {
+	width: 100%;
+	/*/border: 1px solid red;/**/
+}
+
+fieldset {
+    clear: both;
+}
+
+legend {
+	font-weight: bold;
+}
+
+label, select, input, textarea {
+	display: block;
+	/**/float: left;/**/
+	margin-bottom: 1em;
+}
+
+input[size] {
+    width: auto;
+}
+
+label {
+	width: 50%;
+	/**/text-align: right;/**/
+	padding-right: 1%;
+	/*/font-weight: bold;/**/
+	/*/margin-bottom: 0;/**/
+}
+
+label:after {
+	/*/content: ":";/**/
+}
+
+form p {
+	clear: left;
+	/**/margin-left: 50%;/**/
+}
+
+#main_content form img.validation {
+	float: left;
+	display: block;
+	margin-left: 2px;
+	border: none;
+}
+
+/*-------------------------------------------------------------------
+=BUTTONS
+-------------------------------------------------------------------*/
+button {
+	float: left;
+	margin-left: 50%;
+}
+
+button+button {
+	margin-left: 2%;
+}
+
+button#primary_action {
+	margin-left: 50%;
+	font-weight: bold;
+}
+
+button.secondary_action {
+	color: #666;
+	margin-left: 2%;
+}
+
+form li {
+	clear: both;
+}
+
+form li.error input, form li.error textarea {
+	border: 1px solid #EF1D2A;
+	background-color: #fef;
+	color: inherit;
+}
+
+form li.error p, form li.error label {
+	color: #EF1D2A;
+	background-color: transparent;
+}
+
+/*-------------------------------------------------------------------
+=OPTION_SETS
+-------------------------------------------------------------------*/
+
+form li.option_set {
+	position: relative;
+	overflow: auto;
+}
+
+form li.option_set img.validation {
+	position: absolute;
+	top: 0;
+	left: 65%; /* This value is dependant on the line-length of the option_set's labels */
+}
+
+form li.option_set p {
+	width: 49%;
+	padding-right: 1%;
+	float: left;
+	margin-left: 0;
+	/**/text-align: right;/**/
+	/*/font-weight: bold;/**/
+	margin-bottom: -1em; /* TODO Test in IE! */
+}
+
+form li.option_set p:after {
+	/*/content: ":";/**/
+}
+
+form li.option_set input, form li.option_set label {
+	position: relative;
+}
+
+form li.option_set label {
+	float: right;
+	width: 45%;
+	text-align: left;
+	clear: both;
+	margin-bottom: .2em;
+	font-weight: normal;
+	margin-top: 4px;
+}
+
+form li.option_set label:after {
+	content: "";
+}
+
+form li.option_set input {
+	float: left; /* Switch to float: right */
+	/**/margin-left: 50%;/**/
+	margin-bottom: 0;
+}
+
+form li.option_set input:last-child { /* Won't work in most versions of IE */
+	margin-bottom: 1em;
+}
+
+/*-------------------------------------------------------------------
+=CLASSES
+-------------------------------------------------------------------*/
+form .default_js {
+	color: #999;
+	background-color: #fff;
+	font-style: oblique;
+}
+
+form .additional {
+	clear: left;
+	display: block;
+	/**/margin-left: 51%;
+	margin-top: -.5em;
+}
+
+form .hint {
+	font-size: .8em;
+	position: relative;
+	top: -.8em;
+}
+
+/*-------------------------------------------------------------------
+=MESSAGES
+-------------------------------------------------------------------*/
+div.message {
+	color: #000;
+	border: 1px solid #e6db55;
+	padding: 1em;
+	
+}
+
+div.error {
+	background: url(../img/icons/cross.png) no-repeat 10px 50% #fffbcc;
+	padding-left: 36px;
+}
+
+div.error a {
+	color: #EF1D2A;
+}
+
+div.success {
+	background: url(../img/icons/tick.png) no-repeat 10px 50% #fffbcc;
+	padding-left: 36px;
+}
+
+div.message p {
+    margin-left: 0;
+}
+

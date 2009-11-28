@@ -1,0 +1,41 @@
+/*
+Title: Typography helper CSS
+Description: A set of modern psuedo-classes that add a little flair to an HTML page.
+Version: 1.0
+Author: James Nicholls
+Author URI:
+
+Notes:
+*/
+
+h2 + p:first-line { /* replace h2 with whatever element preceeds the first paragraph */
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+h2 + p:first-letter { /* replace h2 with whatever element preceeds the first paragraph */
+	font-size: 3em;
+	position: relative;
+	display: block;
+	float: left;
+	margin-top: -.05em; /* the top margin will need to be adjusted based on the font */
+	margin-bottom: -0.5em;
+	/*border: 1px solid red;*/
+	line-height: 90%;
+}
+
+blockquote p:before {
+	content: "\201C";
+}
+
+blockquote p:last-child:after {
+	content: "\201D";
+}
+
+blockquote:after {
+	content: "\2014" attr(cite);
+}
+
+span.amp {
+	font-style: oblique;
+}

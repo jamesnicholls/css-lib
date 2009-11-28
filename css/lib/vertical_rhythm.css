@@ -1,0 +1,31 @@
+/*
+Title: Vertical rhythm
+Description: A framework that sets up the vertical rhythm of content. It is based on the work of Richard Rutter (http://24ways.org/2006/compose-to-a-vertical-rhythm) and Wilson Miner (http://www.alistapart.com/articles/settingtypeontheweb).
+Version: 1.4
+Author: James Nicholls
+Author URI:
+
+Notes:
+IE 6 and below will not resize text in pixels or support the 'inherit' value.
+*/
+
+body {
+	font-size: 12px;
+	line-height: 18px;
+	margin-bottom: 1.5em;
+	background: url(../img/gridbg.gif); /* For testing purposes only, remove before going live. */
+}
+
+div, h1, h2, h3, h4, h5, h6, p {
+	margin-bottom: inherit; 
+}
+
+h1 {
+	font-size: 21px;
+}
+
+h2 {
+	font-size: 18px;
+}
+
+/* Add further heading styles as required. */

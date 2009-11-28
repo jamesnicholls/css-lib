@@ -1,0 +1,33 @@
+/*
+Title: Image Gallery CSS
+Description: Library code for a simple CSS image gallery
+Version: 1.0
+Author: James Nicholls
+Author URI:
+*/
+
+img {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	padding: 1px;
+	border: 1px solid #ccc;
+	display: block;
+	background-color: #fff;
+}
+
+img#one {top: 0; left: 0;}
+img#two {top: 0; left: 110px;}
+img#three {top: 0; left: 220px;}
+img#four {top: 110px; left: 0;}
+img#five {top: 110px; left: 110px;}
+img#six {top: 110px; left: 220px;}
+
+img:hover {
+	height: 160px;
+	width: 160px;
+	padding: 5px;
+	z-index: 100;
+	margin-top: -30px;
+	margin-left: -30px;
+}

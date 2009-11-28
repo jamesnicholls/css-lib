@@ -1,0 +1,75 @@
+/*
+Title: Link helpers
+Description: A set of pseudo-classes (and utility classes for IE) that apply icons to links based on the links href
+Version: 1.0
+Author: James Nicholls
+Author URI:
+*/
+
+/*
+Notes:
+Silk Icons provided by Fam Fam Fam.
+
+Use link_helper.js to get this working in IE (or just add classes to HTML).
+
+Some sort of js will be needed to add transparency to the pngs
+*/
+
+ul a, ol a {
+	display: block;
+}
+
+/* sets up rules that apply to all icon links */
+a[href$=".pdf"], a[href$=".gif"], a[href$=".png"], a[href$=".jpg"], a[href^="mailto:"], a[href^="http://"], a[href$=".swf"]  {
+	padding-left: 18px; /* this should be adjusted to fit the icons being used */
+	background: transparent left top no-repeat;
+}
+
+/* the following pseudo-classes and classes set the individual background-images */
+a[href$=".pdf"] {
+	background-image: url('../img/icons/page_white_acrobat.png');
+}
+
+a[href$=".gif"], a[href$=".png"], a[href$=".jpg"] {
+	background-image: url('../img/icons/image.png');
+}
+
+a[href^="mailto:"] {
+	background-image: url('../img/icons/email.png');
+}
+
+a[href^="http://"] {
+	background-image: url('../img/icons/world_link.png');
+}
+
+a[href$=".swf"] {
+	background-image: url('../img/icons/page_white_flash.png');
+}
+
+/* classes for IE 6 and below 
+The classes need to be seperated from the psuedo-classes above because otherwise IE will ignore them.
+*/
+a.email, a.pdf, a.img, a.external, a.swf {
+	padding-left: 18px; /* this should be adjusted to fit the icons being used */
+	background: transparent left top no-repeat;
+}
+
+a.email {
+	background-image: url('../img/icons/email.png');
+}
+
+a.external {
+	background-image: url('../img/icons/world_link.png');
+}
+
+a.img {
+	background-image: url('../img/icons/image.png');
+}
+
+a.pdf {
+	background-image: url('../img/icons/page_white_acrobat.png');
+}
+
+a.swf {
+	background-image: url('../img/icons/page_white_flash.png');
+}

@@ -1,0 +1,27 @@
+@import "eric_meyer_css_reset.css";
+			
+.bqstart {
+    float: left;
+}
+
+.bqend {
+    float: right;
+}
+
+blockquote {
+	border: 1px solid blue;
+	width: 30em;
+	//position: relative;
+	//overflow: auto;
+}
+
+blockquote span {
+	border: 1px solid red;
+	font-size: 700%;
+    color: #FF0000;
+}
+
+blockquote p {
+	float: right;
+	border: 1px solid green;
+}

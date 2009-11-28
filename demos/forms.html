@@ -1,94 +1,83 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-	"http://www.w3.org/TR/html4/strict.dtd">
+  "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-	<head>
-		<title>Forms template with list-items</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link href = "css/eric_meyer_css_reset.css" type = "text/css" rel = "stylesheet">
-		<link href = "css/form_demo/forms.vertical.css" type = "text/css" rel = "stylesheet" title = "vertical form layout">
-		<link href = "css/form_demo/forms.horizontal.left.css" type = "text/css" rel = "alternate stylesheet" title = "left-aligned horizontal form layout">
-		<link href = "css/form_demo/forms.horizontal.right.css" type = "text/css" rel = "alternate stylesheet" title = "right-aligned horizontal form layout">
-		<style type = "text/css">
-			form#style_switcher {
-				width: 100%;
-				background-color: gray;
-			}
-			
-			form#style_switcher label, form#style_switcher select {
-				display: inline;
-				width: auto;
-				margin: 0;
-			}
-		</style>
-	</head>
-	
-	<body>
-		<p>A demonstration of three form layouts, using only slight variations of the one CSS file.</p>
-		<form method = "get" action = "nowhere.php" id = "style_switcher">
-			<fieldset>
-				<legend>Style switcher</legend>
-				<label for = "switch">Switch styles</label>
-				<select id = "switch">
-					<option value = "vertical form layout" selected = "selected">Vertical layout</option>
-					<option value = "left-aligned horizontal form layout">Horizontal layout, left-aligned</option>
-					<option value = "right-aligned horizontal form layout">Horizontal layout, right-aligned</option>
-				</select>
-			</fieldset>
-		</form>
-		<form method = "post" action = "nowhere.php">
-			<fieldset>
-				<legend>Some fields</legend>
-				<ol>
-					<li>
-						<label for = "input1">Label</label>
-						<input type = "text" id = "input1" name = "input1" title = "input1" />
-					</li>
-					<li>
-						<label for = "input2">Longer label</label>
-						<select id = "input2" name = "input2">
-							<option>Option 1</option>
-							<option>Option 2</option>
-							<option>Other</option>
-						</select>
-						<input type = "text" name = "input2" class = "additional" id = "input2_other"/>
-					</li>
-					<li>
-						<label for = "input3">Even longer label</label>
-						<input type = "text" id = "input3" name = "input3" />
-						<p class = "hint">P elements with a class of hint can be attached to form list-items.</p>
-					</li>
-					<li class = "option_set" id = "input4">
-						<p>One more label</p><!-- not sure if a solo label such as this causes problems. Changed it for styling purposes. -->
-						<label for = "input4-1">Value 1</label><input type = "radio" id = "input4-1" name = "input4" value = "Value 1" />
-						<label for = "input4-2">Value 2</label><input type = "radio" id = "input4-2" name = "input4" value = "Value 2" />
-					</li>
-					<li>
-						<label for = "input5">Yet another label</label>
-						<input id = "input5" name = "input5" type = "text" />
-					</li>
-					<li>
-						<button id = "primary_action" type = "submit">Primary action</button>
-						<button class = "secondary_action" type = "button">Secondary action</button>
-					</li>
-				</ol>
-			</fieldset>
-		</form>
-		<script type = "text/javascript">
-			function setActiveStyleSheet(title) {
-				var i, a, main;
-				for (i=0; (a = document.getElementsByTagName('link')[i]); i++) {
-					if(a.getAttribute("rel").indexOf("style") != -1 && a.getAttribute("title")) {
-						a.disabled = true;
-						if(a.getAttribute("title") == title) a.disabled = false;
-					}
-				}
-			}
-			
-			setActiveStyleSheet("vertical form layout");
-			
-			document.getElementById('switch').onchange = function() {
-				setActiveStyleSheet(this.options[this.selectedIndex].value);
-			}
-		</script>
-	</body>
+  <head>
+    <title>Forms template with list-items</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="../css/reset.css" type="text/css" rel="stylesheet">
+    <link href="../css/forms.css" type="text/css" rel="stylesheet" title="vertical form layout">
+    <style type = "text/css">
+      form#style_switcher {
+        width: 100%;
+        background-color: gray;
+      }
+      
+      form#style_switcher label, form#style_switcher select {
+        display: inline;
+        width: auto;
+        margin: 0;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <p>A demonstration of three form layouts, using only slight variations of the one CSS file.</p>
+    <form method="get" action="nowhere.php" id="style_switcher">
+      <fieldset>
+        <legend>Style switcher</legend>
+        <label for = "switch">Switch styles</label>
+        <select id = "switch">
+          <option value = "" selected = "selected">Vertical layout</option>
+          <option value = "horizontal left-aligned">Horizontal layout, left-aligned</option>
+          <option value = "horizontal">Horizontal layout, right-aligned</option>
+        </select>
+      </fieldset>
+    </form>
+    <form method="post" action="nowhere.php" id="form" style="width: 470px">
+      <fieldset>
+        <legend>Some fields</legend>
+        <ol>
+          <li>
+            <label for = "input1">Label</label>
+            <input type = "text" id = "input1" name = "input1" title = "input1" />
+          </li>
+          <li>
+            <label for = "input2">Longer label</label>
+            <select id = "input2" name = "input2">
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Other</option>
+            </select>
+            <input type = "text" name = "input2" class = "additional" id = "input2_other"/>
+          </li>
+          <li>
+            <label for = "input3">Even longer label</label>
+            <input type = "text" id = "input3" name = "input3" />
+            <p class = "hint">P elements with a class of hint can be attached to form list-items.</p>
+          </li>
+          <li class = "option-set" id = "input4">
+            <p>One more label</p><!-- not sure if a solo label such as this causes problems. Changed it for styling purposes. -->
+            <label for = "input4-1">Value 1</label><input type = "radio" id = "input4-1" name = "input4" value = "Value 1" />
+            <label for = "input4-2">Value 2</label><input type = "radio" id = "input4-2" name = "input4" value = "Value 2" />
+          </li>
+          <li>
+            <label for = "input5">Yet another label</label>
+            <input id = "input5" name = "input5" type = "text" />
+          </li>
+          <li>
+            <button id = "primary_action" type = "submit">Primary action</button>
+            <button class = "secondary_action" type = "button">Secondary action</button>
+          </li>
+        </ol>
+      </fieldset>
+    </form>
+    <script type = "text/javascript">
+      document.getElementById('switch').onchange = function() {
+       var className = this.options[this.selectedIndex].value;
+        
+        var form = document.getElementById('form');
+        form.className = className
+      }
+    </script>
+  </body>
 </html>

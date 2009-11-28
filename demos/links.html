@@ -1,28 +1,77 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-	"http://www.w3.org/TR/html4/strict.dtd">
+  "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-	<head>
-		<title>Example of the link help css and js</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link href = "css/eric_meyer_css_reset.css" type = "text/css" rel = "stylesheet">
-		<link href = "css/link_helper.css" type = "text/css" rel = "stylesheet">
-		<!--[if lte IE 6]>
-		<script type = "text/javascript" src = "js/link_helper.js"></script>
-		<script type = "text/javascript">
-		window.onload = function() {
-			LinkHelper.init();
-		}
-		</script>
-		<![endif]-->
-	</head>
-	
-	<body>
-		<ul>
-			<li><a href = "nowhere.pdf">A PDF link</a></li>
-			<li><a href = "mailto:none@lloydstsb.co.uk">An email link</a></li>
-			<li><a href = "nothing.png">An image link</a></li>
-			<li><a href = "http://www.nowhere.com">An external link</a></li>
-			<li><a href = "nowhere.swf">A SWF link</a></li>
-		</ul>
-	</body>
+  <head>
+    <title>Example of the link help css and js</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href = "../css/reset.css" type = "text/css" rel = "stylesheet">
+    <link href = "../css/link-helper.css" type = "text/css" rel = "stylesheet">
+    <style type="text/css">
+      a[href$=".pdf"] {
+          background-image: url('links/img/icons/page_white_acrobat.png');
+      }
+
+      a[href$=".gif"], a[href$=".png"], a[href$=".jpg"] {
+          background-image: url('links/img/icons/image.png');
+      }
+
+      a[href^="mailto:"] {
+          background-image: url('links/img/icons/email.png');
+      }
+
+      a[href^="http://"] {
+          background-image: url('links/img/icons/world_link.png');
+      }
+
+      a[href$=".swf"] {
+          background-image: url('links/img/icons/page_white_flash.png');
+      }
+
+      /* classes for IE 6 and below 
+      The classes need to be seperated from the psuedo-classes above because otherwise IE will ignore them.
+      */
+      a.email, a.pdf, a.img, a.external, a.swf {
+          padding-left: 18px; /* this should be adjusted to fit the icons being used */
+          background: transparent left top no-repeat;
+      }
+
+      a.email {
+          background-image: url('links/img/icons/email.png');
+      }
+
+      a.external {
+          background-image: url('links/img/icons/world_link.png');
+      }
+
+      a.img {
+          background-image: url('links/img/icons/image.png');
+      }
+
+      a.pdf {
+          background-image: url('links/img/icons/page_white_acrobat.png');
+      }
+
+      a.swf {
+          background-image: url('links/img/icons/page_white_flash.png');
+      }
+    </style>
+    <!--[if lte IE 6]>
+    <script type = "text/javascript" src = "js/link_helper.js"></script>
+    <script type = "text/javascript">
+    window.onload = function() {
+      LinkHelper.init();
+    }
+    </script>
+    <![endif]-->
+  </head>
+  
+  <body>
+    <ul>
+      <li><a href = "nowhere.pdf">A PDF link</a></li>
+      <li><a href = "mailto:none@lloydstsb.co.uk">An email link</a></li>
+      <li><a href = "nothing.png">An image link</a></li>
+      <li><a href = "http://www.nowhere.com">An external link</a></li>
+      <li><a href = "nowhere.swf">A SWF link</a></li>
+    </ul>
+  </body>
 </html>

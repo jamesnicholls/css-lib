@@ -25,18 +25,26 @@ body {
     height: 100%; /* For IE 6 and below, which doesn't recognise min-height but treats height in the same way */
 }
 
-#site_wrapper { /* Add this abitrary div to the HTML for IE lte 7, which doesn't size font specified at less than 100% on body tag properly */
+#page_wrapper { /* Add this abitrary div to the HTML for IE lte 7, which doesn't size font specified at less than 100% on body tag properly */
     font-size: 62.5%;
 }
 
 #content {
     padding-bottom: 2.5em; /* Equal to the height of the footer, plus any desired white-space between the end of the content div and the footer.*/
-    overflow: auto; /* Because most of the time #content will be filled with floated divs */
+    _height: 1%; /* For IE 6. Will invoke hasLayout and clear any floated divs within #content */
+}
+
+/* Clears any floats within #content */
+#content:after {
+    content: '.';
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
 }
 
 #footer {
     position: absolute;
     bottom: 0;
     height: 2.5em;
-    clear: both;
 }

@@ -1,0 +1,66 @@
+abbr,
+acronym,
+.period, 
+.ord,
+.caps
+{
+    font-variant: small-caps; /* This doesn't seem to be supported well */
+    font-size: .7em; /* Dependant on the font */
+    letter-spacing: .1em;
+    margin-left: .1em;
+    font-weight: bold;
+}
+
+.amp {
+    font-style: italic;
+}
+
+.number {
+    vertical-align: text-top;
+}
+
+.fraction {
+    font-size: .6em;
+}
+
+.fraction .numerator
+{
+    vertical-align: super;
+}
+
+.fraction .denominator
+{
+    vertical-align: sub;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+.manuscript > p:first-child:first-letter {
+    font-size: 3em;
+    display: block;
+    float: left;
+}
+
+.manuscript > p:first-child:first-line {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Repeat for any headings using uppercase */
+h1 abbr,
+h1 .caps,
+h1 .period,
+h1 .ord,
+.manuscript > p:first-child abbr, /* TODO Target only elements in the first line */
+.manuscript > p:first-child .caps,
+.manuscript > p:first-child .period,
+.manuscript > p:first-child .ord
+{
+    font-size: 1em;
+    font-variant: normal;
+    letter-spacing: 0;
+    margin-left: 0;
+    font-weight: normal;
+}

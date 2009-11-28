@@ -13,8 +13,7 @@ Styling on columns is very tempremental. It seems to only if using an id and onl
 
 table {
     font-family: "News Gothic MT", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif; /* Use slim fonts that make use of white-space */
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
+    border-top: 2px solid #000;
 }
 
 td, th {
@@ -27,7 +26,11 @@ th {
 
 thead th {
     text-align: center;
-    border-bottom: 2px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+tfoot td {
+    font-weight: bold;
 }
 
 td {
@@ -36,12 +39,16 @@ td {
 }
 
 /* zebra stripping */
-tr:nth-child(odd) td {
+tbody tr:nth-child(odd) td,
+tbody tr:nth-child(odd) th
+{
     background-color: #f4f7fb;
     color: #000;
 }
 
-tr.odd td {
+tbody tr.odd td,
+tbody tr.odd th
+{
     background-color: #f4f7fb;
     /*color: #000;*/
 } /* Although redundant, I split these two rulesets because the nth-child selector was causing problems in FF */
@@ -54,7 +61,9 @@ col#emphasise {
     background-color: #eee;
 }
 
-tbody tr:hover td, tr.odd:hover td {
+tbody tr:hover td,
+tbody tr:hover th,
+tbody tr.odd:hover td {
     background-color: #5b96e0;
     color: #fff;
 }

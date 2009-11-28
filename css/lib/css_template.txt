@@ -1,7 +1,0 @@
-/*
-Title:
-Description:
-Version: 1.0
-Author: James Nicholls
-Author URI:
-*/

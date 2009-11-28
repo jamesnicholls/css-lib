@@ -1,0 +1,60 @@
+/*
+Title: Documentation Stylesheet
+Description: A set of styles for documentation.
+Version: 1.0
+Author: James Nicholls
+Author URI:
+*/
+
+code {
+	font-family: monospace;
+}
+
+var {
+	font-style: oblique;
+}
+
+abbr {
+	border-bottom: 1px dashed gray;
+}
+
+p.codeblock {
+	background-color: #E7E7E7;
+	color: inherit;
+	margin-left: 1em;
+	white-space: pre;
+	overflow: scroll;
+	padding: 1em;
+	font-family: monospace;
+}
+
+ol#table_of_contents, ol#table_of_contents ol {
+	counter-reset: item;
+	list-style-type: none;
+}
+
+ol#table_of_contents li:before {
+	content: counters(item, ".") " ";
+	counter-increment: item;
+	margin-left: -1em;
+}
+
+body {
+	counter-reset: section sub-section;
+}
+
+h2 {
+	counter-reset: sub-section;
+}
+
+h2:before {
+	counter-increment: section +1;
+	content: counter(section) ". ";
+	margin-left: -1em;
+}
+
+h3:before {
+	counter-increment: sub-section +1;
+	content: counter(section) "." counter(sub-section) " ";
+	margin-left: -1.5em;
+}

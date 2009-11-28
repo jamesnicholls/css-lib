@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+<html lang = "en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; UTF-8">
+		<title>Form Framework Documentation</title>
+		<link href = "css/master.css" type = "text/css" rel = "stylesheet">
+	</head>
+	
+	<body>
+		<h1>Form Framework Documentation</h1>
+		<ol id = "table_of_contents">
+			<li><a href = "#introduction">Introduction</a></li>
+			<li><a href = "#including_scripts">Including the scripts</a></li>
+			<li>
+				<a href = "#markup_guidelines">Markup guidelines</a>
+				<ol>
+					<li><a href = "#buttons">Buttons</a></li>
+					<li><a href = "#classes">Classes</a></li>
+				</ol>
+			</li>
+			<li>
+				<a href = "#styling">Styling</a>
+				<ol>
+					<li><a href = "#orientation">Changing orientation</a></li>
+					<li><a href = "#resizing">Resizing the form</a></li>
+				</ol>
+			</li>
+			<li>
+				<a href = "#validation">Validation</a>
+				<ol>
+					<li><a href = "#live_validation">Live validation</a></li>
+					<li><a href = "#adding_validation">Adding validation</a></li>
+					<li><a href = "#validating_option_sets">Validating groups</a></li>
+					<li><a href = "#linking_elements">Linking elements</a></li>
+				</ol>
+			</li>
+		</ol>
+		<div id = "introduction">
+			<h2>Introduction</h2>
+			<p>This documentation covers marking and styling a form using forms.css and adding behaviours and client-side validation using Javascript. These scripts form part of a larger framework, the documentation for which can be found here. There are also a PHP version of the validation script available and a PHP parser, that creates all the necessary code for a form, complete with client-side and server-side validation, which are documented separately.</p>
+			<p>This documentation assumes some familiarity with CSS and Javascript, however further help can be found in the general framework documentation.</p>
+		</div>
+		<div id = "including_scripts">
+			<h2>Including the scripts</h2>
+			<p>There are three scripts to the form framework:</p>
+			<!-- Links to download -->
+			<ul>
+				<li><em>Forms.css</em> controls layout and visual prominence;</li>
+				<li><em>FormHelper.js</em> hooks into classes in the markup and provides a few helpful behaviours</li>
+				<li><em>LiveValidator.js</em> performs validation of inputs, selects and textareas.</li>
+			</ul>
+			<p>The form.css is the only script required for styling. However, it does assume that some form of css reset <!-- link to common resets here -->is being used. I use Eric Meyer's CSS <!-- link --> reset as part of my larger framework. If you need to know how to link to a CSS file, see my general framework documentation.</p>
+			<p>The two Javascripts should be placed at the end of the file, just before the closing <code>body</code> tag. See my general documentation on details of how to do this. Any required validation will have to be set in a another script element after the FormValidator script has been included. See <a href = "#validation">Validation</a> below for further details.</p><!-- Add something about the adding of additional field links -->
+		</div>
+		<div id = "markup_guidelines">
+			<h2>Markup guidelines</h2>
+			<p>The current form framework requires the use of an ordered list with each input, select or textarea, and corresponding label, contained with in a list-item.</p>
+			<p>I have debated the use of list-items in the past. You can read the full discussion here. Currently, I believe this technique provides an adequate compromise between semantics, cross-browser compatibility and lean markup. For a summary of the advantages of this technique, read article at AListApart.</p>
+			
+		<!-- Example of label and input pair. -->
+			<p class = "codeblock">
+&lt;li&gt;
+	&lt;label id = "name"&gt;Name&lt;/label&gt;
+	&lt;input type = "text" name = "name" id = "name" /&gt;
+&lt;/li&gt;
+			</p>
+			<div id = "buttons">
+				<h3>Buttons</h3>
+				<p>I have chosen to use button elements for form submission and other actions, as opposed to the more traditional <code>input type = "submit"</code>. This is because I find them easier to style and maintain. However there are some caveats to be aware of when using buttons, so be aware.</p>
+				<p>The primary action in any form should be given an <code>id = "primary_action"</code>. It is given an id because I believe that there should only be one primary action per form, and it should be more visually prominent than other calls-to-action. Buttons that perform secondary actions, like resetting a form, are marked up with a <code>class = "secondary_action"</code>, and are styled with less visual prominence.</p>
+				<h3>Option sets (checkboxes and radio buttons)</h3>
+				<p>Radio buttons and checkboxes tend to represent multiple options for one question. As such, a question that contains one or more checkboxes or radio buttons should be nested within a li with the class of option_set.* As with regular inputs, labels should be placed to the left (wording).</p>
+				<p>A paragraph is used to markup the actual question (again, subject to change). In cases where there is only one option, use the label to markup the question (example)</p>
+			</div>
+			<div id = "classes">
+				<h3>Classes</h3>
+				<h4>Additional</h4>
+				<p>Sometimes, more than one field maybe required per question. In order for these fields to have the indentation as other fields, give them a class name of <code>additional</code>. Typically, additional fields will be the result of FormHelper functon (see <a href = "#adding_fields_at_runtime">Adding fields at runtime</a> below). In these cases, the new fields will already have the class added.</p>
+				<h4>Defaults</h4>
+				<p>Default values can be set for text inputs by adding a value attribute. These default values can be useful for showing an example of the expected format for an input, say in the case of an email address. These fields should also be given a class of <code>default</code>. As well as adding styling, this will also add a behaviour where the default value will be cleared when a user clicks on the form field. If the user does not enter a replacement value, the default value will be restored.</p>
+
+				<h3>Adding hints</h3>
+				<p>Hints can be added to fieldsets in order to clarify the meaning of expected format of an input. Hints should be marked up with a <code>p</code> tag with a class of <code>hint</code> and be added directly after the input with which they are associated.</p><!-- might put something in here about using them as error messages or hiding until input is clicked or help button is clicked, but have to code it first! -->
+				<h3>Adding fields at runtime (user-generated additional fields)</h3>
+				<!-- need to talk about the createAddFieldLink method in FormHelper (and rename it!). Needs to be tested -->
+				<p>Often, you will want to give users the opportunity to add an input, select or even a set of fields in order to give more than one answer per question. The user maybe filling out personal details for more than one person, for instance. Links for creating these fields should be added with Javascript as they are not useful without it enabled. The FormHelper contains a method to add these links, createAddFieldLink. It takes two arguments:</p>
+				<ol>
+					<li><em>strTargetId:</em><code>String</code>[required] - The id of the element the link will duplicate. The element should be either an input, select or fieldset. If a fieldset is selected, its childNodes will also be duplicated.</li>
+					<li><em>strInnerText:</em><code>String</code>[required] - The text you wish to place between the <code>&lt;a&gt;</code> tags.</li>
+				</ol>
+				<p>Alternatively, these links can be hard-coded into the HTML. The links should have a <code>class</code> of <code>add_field</code>, an <code>id</code> of <code>add_field_</code> plus the id of the element it is duplicating and should provide a Javascript-free method of providing the same functionality.</p>
+			</div>
+		</div>
+		
+		<!-- Example
+		* This is subject to change. The inputs and labels might be nested within a fieldset that is in turn nested in the li. -->
+	
+
+		<div id = "styling">
+			<h2>Styling the form</h2>
+			<p>The responsibilities of the forms.css stylesheet cover the layout of the form fields and the visual weighting of buttons. All branding and typographic styling should be handled in another stylesheet but be aware that multiple stylesheets will increase load times for your site.<!-- Link to that Google guy's site --></p>
+			<div id = "orientation">
+				<h3>Changing orientation</h3>
+				<p>The CSS was designed to easily switch to anyone of three form layout variations proposed by Luke Wroblewski<!--link-->. Each variation offers different benefits and should be used in different situations. For complete details on how to change the layouts, please see the comments at the top of the CSS file.</p> 
+			</div>
+			<div id = "resizing">
+				<h3>Resizing the form</h3>
+				<p>The form selector controls the width of the form, sized in <code>ems</code>. All descendant elements are sized in percentages so they will adapt to the size of the form.</p>
+			</div>
+		</div>
+		<div id = "validation">
+			<h2>Validation</h2>
+			<div id = "live_validation">
+				<h3>Live Validation</h3>
+				<p>The framework uses a Javascript called LiveValidator. Elements are added to the LiveValidator and are validated at different times depending on the element type:</p>
+				<ul>
+					<li>Text input elements are validated after they lose focus, unless it is the last element before the primary action button. In that case, the element will be re-validated after every press of a button.</li>
+					<li>Selects elements are validated onchange.</li>
+					<li>Radio buttons and checkboxes tend to be <a href = "#validating_option_sets">validated as a group</a>. The validation is done on change of one of the elements within the group.</li>
+				</ul>
+				<p>On adding the LiveValidator script to your HTML file, it will disable the primary action button. Once all required elements have been validated,the button will be enabled and allow the user to proceed.</p>
+			</div>
+			<div id = "adding_validation">
+				<h3>Adding validation</h3>
+				<p>Elements are added to the LiveValidator using the add method. It takes four parameters:</p>
+				<ul>
+					<li>The id of the element to validate (String, required)</li>
+					<li>The validation type of the element. This can be one of a number of predefined options or a user-defined one that is added to the LiveValidator (see below). A type is a regular expression that the value of the element is tested against (String, required).</li>
+					<li>The minimum length that the value of the element can be (Integer, required)</li>
+					<li>Whether the element must contain a value in order for the form to be valid (Boolean, required)</li>
+				</ul>
+			</div>
+			<div id = "validating_option_sets">
+				<h3>Validation option sets</h3>
+				<p>Group of checkboxes or radio buttons should be validated by using the LiveValidator's addGroup method. This method takes two parameters, the id of the parent <code>li</code> and the minimum required options (for a group of radio buttons, this would only ever be one, as radio buttons are intended for a set of exclusive options). On change of anyone of these radio buttons or checkboxes, the LiveValidator will check to see if the required number of options has been selected and validate the <code>li</code> as a whole.</p>
+			</div>
+			<div id = "linking_elements">
+				<h3>Linking elements together (combo-boxes)</h3>
+				<p>Using the LiveValidator, you can link two elements together. Linking two elements changes the validation of one element when a certain value is specified in it's linked element. For instance, if a checkbox, asking if the user wants to receive email updates is ticked, it could force an email address input to be required.</p>
+				<!-- Currently, the LiveValidator will not switch an element to NOT be required. I'm not sure whether that would ever be useful but it is something to at least be aware of -->
+				<p>This can also be used to create pseudo combo-boxes. Combo boxes in user interface design are inputs where a value can be typed in or selected from a drop-down list. HTML doesn't have such an element but a similar element can be created by creating a select box with an "other" option, that would make an input field below the select box required.</p>
+				<p>The LiveValidator will also take care of disabling non-required elements on loading ad enabling the elements as required.</p>
+				<p>To link two elements together:</p>
+				<ol>
+					<li>Add both elements to the LiveValidator separately (see <a href = "#adding_validation">Adding validation</a> above);</li>
+					<li>Call the linkElements method of the LiveValidator. This method takes three arguments:
+						<ol>
+							<li>The id of the switch element (in the combo-box example above, this would be the select box)(String, required).</li>
+							<li>The option that, when typed in or selected, causes the linked element to become required.</li>
+							<li>The id of the linked element(String, required)</li>
+						</ol>
+					</li>
+				</ol>
+			</div>
+		</div>
+		<script type = "text/javascript">
+			var anchor = document.createElement("a");
+			anchor.onclick = hide;
+			anchor.innerHTML = "Hide table of contents";
+			anchor.href = "#";
+			document.getElementsByTagName("body")[0].insertBefore(anchor, document.getElementById("table_of_contents"));
+			
+			function hide() {
+				var toc = document.getElementById("table_of_contents");
+				toc.style.visibility = "hidden";
+				toc.style.display = "none";
+				this.innerHTML = "Show table of contents";
+				this.onclick = show;
+				return void[0];
+			}
+			
+			function show() {
+				var toc = document.getElementById("table_of_contents");
+				toc.style.visibility = "visible";
+				toc.style.display = "block";
+				this.innerHTML = "Hide table of contents";
+				this.onclick = hide;
+				return void[0];
+			}
+		</script>
+	</body>
+</html>

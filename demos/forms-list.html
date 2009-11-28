@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Forms template with list-items</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link href = "css/eric_meyer_css_reset.css" type = "text/css" rel = "stylesheet">
+		<link href = "css/forms.css" type = "text/css" rel = "stylesheet">
+	</head>
+	
+	<body>
+		<form method = "post" action = "nowhere.php">
+			<fieldset>
+				<legend>Some fields</legend>
+				<ol>
+					<li>
+						<label for = "input1">Label</label>
+						<input type = "text" id = "input1" name = "input1" title = "input1" />
+					</li>
+					<li>
+						<label for = "input2">Longer label</label>
+						<select id = "input2" name = "input2">
+							<option>Option 1</option>
+							<option>Option 2</option>
+						</select>
+					</li>
+					<li>
+						<label for = "input3">Even longer label</label>
+						<input type = "text" id = "input3" name = "input3" />
+					</li>
+					<li>
+						<fieldset class = "option_set" id = "input4">
+							<legend>One more label</legend>
+							<label for = "input4-1"><input type = "radio" id = "input4-1" name = "input4" value = "Value 1" />Value 1</label>
+							<label for = "input4-2"><input type = "radio" id = "input4-2" name = "input4" value = "Value 2" />Value 2</label>
+						</fieldset>
+					</li>
+					<li>
+						<button id = "primary_action" type = "submit">Primary action</button>
+						<button class = "secondary_action" type = "button">Secondary action</button>
+					</li>
+				</ol>
+			</fieldset>
+		</form>
+		<script type = "text/javascript" src = "js/FormHelper.js"></script>
+		<script type = "text/javascript">
+			FormHelper.createAddFieldLink("input3", "Add another");
+		</script>
+		<!--<script type = "text/javascript" src = "js/LiveValidator.js"></script>
+		<script type = "text/javascript">
+			LiveValidator.add('input1', 'string', 2, true);
+			LiveValidator.add('input2', 'string', 2, true);
+			LiveValidator.add('input3', 'number', 2, true);
+			LiveValidator.addGroup('input4', 1);
+		</script> -->
+	</body>
+</html>

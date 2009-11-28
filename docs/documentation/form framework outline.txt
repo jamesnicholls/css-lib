@@ -1,0 +1,29 @@
+Form Framework Documentation
+Introduction
+This documentation covers marking and styling a form using forms.css and adding behaviours and client-side validation using Javascript. These scripts form part of a larger framework, the documentation for which can be found here. There are also a PHP version of the validation script available and a PHP parser, that creates all the necessary code for a form, complete with client-side and server-side validation, which are documented separately.
+Markup guidelines
+The current form framework requires the use of an ordered list with each input, select or textarea, and corresponding label, contained with in a list-item.
+I have debated the use of list-items in the past. You can read the full discussion here. Currently, I believe this technique provides an adequate compromise between semantics, cross-browser compatibility and lean markup. For a summary of the advantages of this technique, read article at AListApart.
+Including the scripts
+Example of label and input pair.
+Buttons
+I have chosen to use button elements for form submission and other actions, as opposed to the more traditional input type = "submit". This is because I find them easier to style and maintain. However there are some caveats to be aware of when using buttons, so be aware.
+The primary action in any form should be given an id of "primary_action". It is given an id because I believe that only one button per form should be styled to look like the "primary_action". Buttons that perform secondary actions, like resetting a form, are marked up with a class of secondary_action, and are styled with less visual prominence.
+Option sets (checkboxes and radio buttons)
+Radio buttons and checkboxes tend to represent multiple options for one question. As such, a question that contains one or more checkboxes or radio buttons should be nested within a li with the class of option_set.* As with regular inputs, labels should be placed to the left (wording). 
+A paragraph is used to markup the actual question (again, subject to change). In cases where there is only one option, use the label to markup the question (example)
+Example
+* This is subject to change. The inputs and labels might be nested within a fieldset that is in turn nested in the li.
+Classes
+	Additional
+	Defaults
+Adding hints
+Adding fields at runtime (user-generated additional fields)
+Styling the form
+The responsibilities of the forms.css stylesheet cover the layout of the form fields and the visual weighting of buttons.
+Changing orientation
+Resizing the form
+Adding validation
+Validating single elements
+Validation option sets
+Linking elements together (combo-boxes)

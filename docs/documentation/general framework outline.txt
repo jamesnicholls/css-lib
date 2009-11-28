@@ -1,0 +1,38 @@
+My CSS Framework
+
+Background
+The idea for my own CSS framework really came from two separate ideas. The first was vertical rhythm, which is an aspect of typography brought to my attention by Richard Rutter, Wilson Miner and Mark Boulton. For those that don't know, vertical rhythm is (find good definition and insert here).
+
+This isn't too tricky to set up. It just takes a calculator and about twenty minutes. My problem was if I wanted to change the font-size at a later date, I'd have to set up the vertical rhythm all over again, including searching for all my hn and p selectors. I wanted something more maintainable which would become one of the main goals of the framework as a whole.
+
+The other idea which would become a major part of the framework was defining a consistent and versatile markup scheme for forms. At the time, I was creating forms a fair bit and I ended up re-writing the same CSS a lot. On top of that, I found that most forms required similar functionality, such as adding form fields or options to a select box. Around this time, a colleague of mine began to develop an object-orientated script for client-side form validation. I hadn't had much experience in OOP at the time but I could see benefits of such a script and set out to re-create the functionality in PHP. I also came across Luke Wroblewski's article on form layout at UIE. I was interested to read about the advantages of the various layouts and thought that it wouldn't be too hard to adjust the CSS I had written so many times to incorporate all three of the layouts. Then, with this CSS, the PHP validator class and the Javascript validation script, I would have a reusable form framework that could be pretty much plugged into a site without much configuration. The goals for the form framework would also become part of the goals for the larger CSS framework.
+
+Goals
+The goals in creating the framework then were to create a set of CSS files that are:
+maintainable
+Make intelligent use of the cascade
+Modular
+Reusable
+Avoid repetition (make changes once)
+Avoid repetitive tasks (form layout)
+Set up basic style
+
+What the framework isn't
+I'm quick to disassociate my framework from more comprehensive ones such as Blueprint and YUI. Although I respect the work and ingenuity that has gone into them (especially in the case of YUI) I think that calling them frameworks is a bit of a misnomer and associates them with the type of work that has gone into Javascript frameworks such as jQuery and Prototype. (look for Andy Budd quote). While jQuery and Prototype provide convenient and cross-compatible methods for interacting with Javascript (such as using $ instead of document.getElementById), Blueprint and YUI simply provide pre-written code that a developer hooks into with HTML. The CSS is no easier to adjust and, more importantly, the CSS becomes coupled to the HTML.
+
+I don't think of my framework as any more clever than Blueprint or YUI, but the approach is different. Instead of trying to provide a comprehensive set of styles that can be hooked into, my framework intends to set up rules that can be adjusted using the cascade. It does this by separating stylesheets into various responsibilities, setting general rules at the start of stylesheet, using inheritance and the cascade to filter down these rules to child elements and leaving specific overrides to be handled by the developer.
+
+Yes, my framework sets up basic defaults but these defaults are not necessarily to be taken as is. The overriding idea is to set up a mechanism where by a developer can configure general styles and not worry about how the individual child elements inherit these styles but be safe in the knowledge that they will styled appropriately.
+
+Known issues
+I will keep specific technical issues to the documentation for the specific stylesheets but before attempting to use this framework, there are a number of general issues a developer should be aware of.
+
+Using multiple stylesheets is not really an idea that I would recommend. Firstly, there is the problem of bandwidth. Sites should be optimised to make as little HTTP requests as possible. You could of course combine and compress your stylesheets on deployment and stick to separated stylesheets throughout development. However I think there is a larger problem here is trying to maintain several different stylesheets in development. Having used this technique several times, I can see it does affect the speed and fluidity at which you write code and a fair amount of time is spent making sure styles are kept to the correct stylesheet. Furthermore, style rules can not always be easily abstracted. For instance, when layouts can be very closely linked to layout, especially when sizing in ems and margin-bottom, which most would consider a layout rule, is essential in crafting a vertical rhythm. So where do these styles belong?
+
+I do prefer separating out selectors that serve a very specific purpose, such as form elements. The abstraction is usually very clean and the stylesheet only needs to be loaded in by pages that require that purpose.
+
+A side-effect of using a modular approach to CSS (or Javascript for that matter) is that it inevitably requires a developer to hook in the styles or behaviours using markup. As much as I tried to avoid it, my framework will require the developer to add a class or id name to an element in order to style it or add some behaviour. This is really more of a philosophical issue than a practical one. Any pre-written stylesheet or Javascript will require a developer to amend the HTML, instead of writing the CSS and Javascript to serve the HTML, and this goes against the principle of the separation of layers and progressive enhancement, however mildly.
+
+Unfortunately, I wasn't able to get the framework to be as simple to use as I would have liked. At times, I thought that developers with little knowledge of CSS might be able to use it but now, having struggled with using and configuring the framework myself a couple of times, I wouldn't really recommend any developer using it. After all is said I done, I think I have created set of baseline stylesheets for myself, designed for how I code. The form stylesheet alone, which was meant to only require a few simple changes to switch layouts, requires 15 rule changes to switch from a horizontal to a vertical layout. I am publishing it now mainly to show off the work I have put it into it but also I think it raises some interesting issues on CSS maintenance and development and the issue of frameworks in general.
+
+Recently I came across the notes Natalie Downe's talk on CSS Systems. I enjoyed them not only because I believe she brought up the best and worst points of a framework like mine but also because she advises creating a reusable set of markup patterns and CSS tailer-made for each site. I would recommend that developers take a look through my framework, question their approach to writing maintainable, reusable CSS and perhaps develop frameworks if not specific to each site, then at least to their own development styles. 

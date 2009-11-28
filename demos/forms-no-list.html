@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Forms template without list-items</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link href = "css/eric_meyer_css_reset.css" type = "text/css" rel = "stylesheet">
+		<link href = "css/form_demo/forms.vertical.css" type = "text/css" rel = "stylesheet">
+		<style type = "text/css">
+			body {
+				font-family: Helvetica, Arial, sans-serif;
+			}
+		</style>
+		<script type = "text/javascript" src = "js/FormValidator_v02.js"></script>
+		<script type = "text/javascript" src = "js/FormHelper.js"></script>
+	</head>
+	
+	<body>
+		<!-- replaced the unconnected label for the radio buttons with a fieldset -->
+		<!-- added usability features -->
+		<form method = "post" action = "nowhere.php">
+			<fieldset>
+				<legend>Some fields</legend>
+				<label for = "name">Full name</label>
+				<input type = "text" id = "name" name = "name" />
+				<!-- <p class = "note">Some useful information regarding the above field.</p> -->
+				<!-- <a href = "#" class = "add_field" id = "add_field_input1">Add field</a> -->
+				<label for = "email">Email address</label>
+				<input type = "text" id = "email" name = "email" value = "you@yourdomain.com" class = "default" />
+				<p class = "hint" id = "email_hint">Your email address must be entered in the form <em>you@yourdomain.com</em>.</p>
+				<label for = "address">Address</label>
+				<input type = "text" id = "address" name = "address" />
+				<label for = "city">City</label>
+				<input type = "text" id = "city" name = "city" />
+				<label for = "state">State</label>
+				<select id = "state" name = "state">
+					<option selected = "selected">Choose&#8230;</option>
+				</select>
+				<label for = "zip"><acronym title = "Zoning Improvement Plan">ZIP</acronym></label>
+				<input type = "text" size = "5" class = "short default" name = "zip" id = "zip" value = "55555" />
+				<button id = "primary_action" type = "submit">I'm done</button>
+				<button class = "secondary_action" type = "button">Cancel</button>
+			</fieldset>
+		</form>
+		<script type = "text/javascript">
+			LiveValidator.add('name', 'string', 2, true);
+			LiveValidator.add('email', 'email', 7, true);
+			LiveValidator.add('address', 'mixed', 2, true);
+			LiveValidator.add('city', 'string', 2, true);
+			LiveValidator.add('zip', 'number', 5, true);
+		</script>
+		<!-- <script type = "text/javascript">
+			var el = document.getElementById('name');
+			while (el.nextSibling) {
+				alert('Current element is ' + el.id);
+				if (el.nextSibling.nodeType == 1) {
+					alert(el.nextSibling.tagName);
+					break;
+				}
+				el = el.nextSibling; 
+			}
+		</script> -->
+	</body>
+</html>

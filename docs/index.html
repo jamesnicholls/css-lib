@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+<html lang = "en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; UTF-8">
+		<title>Form Framework Documentation</title>
+		<link href = "css/master.css" type = "text/css" rel = "stylesheet">
+		<style type = "text/css">
+			q:before {
+				content: "\201C";
+			}
+			
+			q:after {
+				content: "\201D";
+			}
+		</style>
+	</head>
+	
+	<body>
+		<h1>CSS Framework Documentation</h1>
+		<div id = "introduction">
+			<h2>Introduction</h2>
+			<p>My <abbr title = "Cascading Style Sheets">CSS</abbr> framework is a collection of style sheets and a few Javascript files (mostly to plug the holes in <abbr title = "Internet Explorer">IE</abbr>&rsquo;s <abbr title = "Cascading Style Sheets">CSS</abbr> support) which attempt to solve common <abbr title = "Cascading Style Sheets">CSS</abbr> tasks (such as form layout and establishing a vertical rhythm) with code that can be easily adjusted and maintained.</p>
+		</div>
+		<div id = "background">
+			<h2>Background</h2>
+			<p>The idea for my own <abbr title = "Cascading Style Sheets">CSS</abbr> framework really came from two separate ideas. The first was vertical rhythm, which is an aspect of typography brought to my attention by <a href="http://24ways.org/2006/compose-to-a-vertical-rhythm">Richard Rutter</a>, <a href="http://www.alistapart.com/articles/settingtypeontheweb">Wilson Miner</a> and <a href="http://www.markboulton.co.uk/journal/comments/incremental_leading/">Mark Boulton</a>. For those that don't know, vertical rhythm is <q>the spacing and arrangement of text as the reader descends the page</q>. A consistent use of this spacing helps aid readability and, in my opinion, is aesthetically pleasing.</p>
+			<p>This isn&rsquo;t too tricky to set up. It just takes a calculator and about twenty minutes. My problem was if I wanted to change the font-size at a later date, I'd have to set up the vertical rhythm all over again, including searching for all my <code>h<var>n</var></code> and <code>p</code><!-- double check the use of var! --> selectors. I wanted something more maintainable, which would become one of the main goals of the framework as a whole.</p>
+			<p>The other idea which would become a major part of the framework was defining a consistent and versatile mark-up scheme for forms. At the time, I was creating forms a fair bit and I ended up re-writing the same <abbr title = "Cascading Style Sheets">CSS</abbr> a lot. On top of that, I found that most forms required similar functionality, such as adding form fields or options to a select box. Around this time, a colleague of mine began to develop an object-orientated script for client-side form validation. I hadn&rsquo;t had much experience in <abbr title="Object Orientated Programming">OOP</abbr> at the time but I could see benefits of such a script and set out to re-create the functionality in <abbr title="Pre-HyperText Processor">PHP</abbr>. I also came across Luke Wroblewski&rsquo;s <a href="http://www.uie.com/articles/web_forms/">article on form layout</a> at <a href="http://www.uie.com/">UIE</a>. I was interested to read about the advantages of the various layouts and thought that it wouldn&rsquo;t be too hard to adjust the <abbr title = "Cascading Style Sheets">CSS</abbr> I had written so many times to incorporate all three of the layouts. Then, with this <abbr title = "Cascading Style Sheets">CSS</abbr>, the <abbr title="Pre-HyperText Processor">PHP</abbr> validator class and the Javascript validation script, I would have a reusable form framework that could be pretty much plugged into a site without much configuration. The goals for the form framework would also become part of the goals for the larger <abbr title = "Cascading Style Sheets">CSS</abbr> framework.</p>
+		</div>
+		<div id = "goals">	
+			<h2>Goals</h2>
+			<p>The goals in creating the framework then were to create a set of CSS files that are:</p>
+			<ul>
+				<li>maintainable</li>
+				<li>Make intelligent use of the cascade</li>
+				<li>Modular</li>
+				<li>Reusable</li>
+				<li>Avoid repetition (make changes once)</li>
+				<li>Avoid repetitive tasks (form layout)</li>
+				<li>Set up basic style</li>
+			</ul>
+		</div>
+		<div id = "what_it_isnt">
+			<h2>What the framework isn&rsquo;t</h2>
+			<p>I&rsquo;m quick to disassociate my framework from more comprehensive ones such as Blueprint and YUI. Although I respect the work and ingenuity that has gone into them (especially in the case of YUI) I think that calling them frameworks is a bit of a misnomer and associates them with the type of work that has gone into Javascript frameworks such as jQuery and Prototype. (look for Andy Budd quote). While jQuery and Prototype provide convenient and cross-compatible methods for interacting with Javascript (such as using <code>$</code> instead of <code>document.getElementById</code>), Blueprint and YUI simply provide pre-written code that a developer hooks into with <abbr title = "HyperText Markup Language">HTML</abbr>. The <abbr title = "Cascading Style Sheets">CSS</abbr> is no easier to adjust and, more importantly, the <abbr title = "Cascading Style Sheets">CSS</abbr> becomes coupled to the <abbr title = "HyperText Markup Language">HTML</abbr>.</p>
+			<p>I don&rsquo;t think of my framework as any more clever than Blueprint or YUI, but the approach is different. Instead of trying to provide a comprehensive set of styles that can be hooked into, my framework intends to set up rules that can be adjusted using the cascade. It does this by separating style sheets into various responsibilities, setting general rules at the start of style sheet, using inheritance and the cascade to filter down these rules to child elements and leaving specific overrides to be handled by the developer.</p>
+			<p>Yes, my framework sets up basic defaults but these defaults are not necessarily to be taken as is. The overriding idea is to set up a mechanism where by a developer can configure general styles and not worry about how the individual child elements inherit these styles but be safe in the knowledge that they will styled appropriately.</p>
+		</div>
+		<div id = "issues">
+			<h2>Known issues</h2>
+			<p>I will keep specific technical issues to the documentation for the respective style sheets but before attempting to use this framework, there are a number of general issues a developer should be aware of.</p>
+			<p>Using multiple style sheets is not really an idea that I would recommend. Firstly, there is the problem of bandwidth. Sites should be optimised to make as little <abbr title = "HyperText Transfer Protocol">HTTP</abbr> requests as possible. You could of course combine and compress your style sheets on deployment and stick to separated style sheets throughout development. However I think the larger problem here is trying to maintain several different style sheets in development. Having used this technique several times, I can see it does affect the speed and fluidity at which you write code and a fair amount of time is spent making sure styles are kept to the correct style sheet. Furthermore, style rules can not always be easily abstracted. For instance, the margin-bottom property is essential in maintaining a consistent vertical rhythm, although it would obviously seem to be a layout property. To which style sheet then does it belong?</p>
+			<p>I do prefer separating out selectors that serve a very specific purpose, such as form elements. The abstraction is usually very clean and the style sheet only needs to be loaded in by pages that require that purpose.</p>
+			<p>A side-effect of using a modular approach to <abbr title = "Cascading Style Sheets">CSS</abbr> (or Javascript for that matter) is that it inevitably requires a developer to hook in the styles or behaviours using mark-up. As much as I tried to avoid it, my framework will require the developer to add a <code>class</code> or <code>id</code> to an element in order to style it or add some behaviour. This is really more of a philosophical issue than a practical one. Any pre-written style sheet or Javascript will require a developer to amend the <abbr title = "HyperText Markup Language">HTML</abbr>, instead of writing the <abbr title = "Cascading Style Sheets">CSS</abbr> and Javascript to serve the <abbr title = "HyperText Markup Language">HTML</abbr>, and this goes against the principle of the separation of layers and progressive enhancement, however mildly.</p>
+			<p>Unfortunately, I wasn't able to get the framework to be as simple to use as I would have liked. At times, I thought that developers with little knowledge of <abbr title = "Cascading Style Sheets">CSS</abbr> might be able to use it but now, having struggled with using and configuring the framework myself a couple of times, I wouldn't really recommend any developer using it. After all is said I done, I think I have created set of baseline style sheets for myself, designed for how I code. The form style sheet alone, which was meant to only require a few simple changes to switch layouts, requires 15 rule changes to switch from a horizontal to a vertical layout. I am publishing it now mainly to show off the work I have put it into it but also I think it raises some interesting issues on <abbr title = "Cascading Style Sheets">CSS</abbr> maintenance and development and the issue of frameworks in general.</p>
+			<p>Recently I came across the notes Natalie Downe's talk on <abbr title = "Cascading Style Sheets">CSS</abbr> Systems. I enjoyed them not only because I believe she brought up the best and worst points of a framework like mine but also because she advises creating <q>a reusable set of markup patterns and <abbr title = "Cascading Style Sheets">CSS</abbr></q> <em>tailor-made for each site</em>. I would recommend that developers take a look through my framework, question their approach to writing maintainable, reusable <abbr title = "Cascading Style Sheets">CSS</abbr> and perhaps develop frameworks if not specific to each site, then at least to their own development styles. </p>
+		</div>
+		<div id = "usage">
+			<h2>Usage</h2>
+			<p>Specific usage for each style sheet will be discussed in its respective documentation.</p>
+			<p>Style sheets can be added to an HTML document in a couple of ways:</p>
+			<ul>
+				<li>Linked in the head of the of the document using the <code>link</code> element.</li>
+				<li>Linked to a master <abbr title = "Cascading Style Sheets">CSS</abbr> file using the <code>@import</code> directive, which in turn is linked to the <abbr title = "HyperText Transfer Protocol">HTTP</abbr> document using the <code>link</code> element.</li>
+				<li>Alternatively, the <abbr title = "Cascading Style Sheets">CSS</abbr> files could be combined into one style sheet, which is linked to the <abbr title = "HyperText Transfer Protocol">HTTP</abbr> document.</li>
+			</ul>
+			<p>Regardless of the method used, style sheets should be linked to in the <code>head</code> of the document.</p>
+			<h3>Using the Javascript files</h3>
+			<p>Once again, usage of specific Javascript files will be discussed in the documentation for the files. In general, however, Javascript files should be linked to using the <code>script</code> element, right before the closing <code>body</code> tag.</p>
+			<p>In many cases the Javascript files are used simply to plug holes in <abbr title = "Internet Explorer">IE</abbr>&rsquo;s buggy <abbr title = "Cascading Style Sheets">CSS</abbr> support. As such, you may want to use <abbr title = "Internet Explorer">IE</abbr>&rsquo;s conditional comments so that the Javascript files are only served to certain versions of <abbr title = "Internet Explorer">IE</abbr>. Bear in mind that conditional comments are not standard mark-up.</p>
+		</div>
+	</body>
+</html>

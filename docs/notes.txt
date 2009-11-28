@@ -1,0 +1,38 @@
+Purpose of the various framework stylesheets
+
+Eric Meyer's CSS Reset
+I use Eric Meyer's CSS Reset to reset default browsers' styles. Any reset should be fine though.
+
+There seems to be some argument from the web community about whether to use a reset or not. At the very least I think I would always use the * {padding: 0; margin: 0} reset, although I have read that this can cause issues with form styling. I think most of the issues can be resolved by using a reset that you know and understand.
+
+Layout
+Sets up defaults for a centred, elastic layout, with a maximum width the width of the user's browser and a sticky footer (i.e. a footer that is at or below the bottom of the browser, depending on the amount of content).
+
+Image Gallery
+One of a number of widget style sheets, CSS files that control a specific functionality. This one creates a gallery of images, floated side by side, which increase in size when hovered over.
+
+There is an argument that says you should not use CSS to control behaviour, just as you wouldn't use Javascript to style a page. For me, this style sheets proves that point. It runs like your grandma. And it would require some Javascript to get the same functionality in IE 6 and below (which doesn't support the :hover psuedo-class on anything but a link). Don't use it. Look into a Javascript framework if you want to produce similar functionality quickly.
+
+Link Helper
+A simple script that places icons next to links, based on there href attributes. It uses advanced psuedo-classes and hence requires a Javascript file to produce the same functionality in IE 6 and below (not sure about IE 7).
+
+Specific icons can be used. Make sure to change the padding on the overall selector to the size of your icons.
+
+Icons provided by Fam Fam Fam.
+
+Tabbed Navigation
+Another widget stylesheet, this one sets up hooks creates tabs from list-items.
+
+Typography Helper
+This script uses modern psuedo-selectors to add some typographic flair to a page. This includes transforming the first line of content to uppercase, adding a drop-cap to the first letter of some content and adding curly quotes to each paragraph of a blockquote.
+
+A Javascript that mimics this functionality for IE has yet to be written.
+
+Tables
+Sets up some default styling for tables.
+
+Vertical Rhythm
+A framework for the vertical rhythm of lines. The rhythm is set up on the body selector (could be changed to a div selector, basically where you want the rhythm to begin) by establishing a base font size, bottom margin and line-height.  The values are then cascaded down to paragraphs, headings and lists.
+
+Will not work in IE.
+

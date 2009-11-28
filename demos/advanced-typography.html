@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; utf-8">
+		<title>Advanced typography example</title>
+		<link href = "css/eric_meyer_css_reset.css" type = "text/css" rel = "stylesheet">
+		<link href = "css/vertical_rhythm.css" type = "text/css" rel = "stylesheet">
+		<link href = "css/typography_helper.css" type = "text/css" rel = "stylesheet">
+		<style type = "text/css">
+			body {
+				font-family: Palatino, Georgia, sans-serif;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id = "content">
+			<h1>Heading 1</h1>
+			<h2>Stuff <span class = "amp">&amp;</span> nonsense</h2>
+			<p>This is the second version of the typography framework. IE doesn't support the inherit value or resize fonts sized in pixels, making the first attempt pretty useless. However, it does support dynamic expressions, so by using percentages for our font-size and converting it to an integer with Javascript, we can then define a margin for our headings and paragraph elements.</p>
+			<p>Unfortunately, it wasn't as easy as all that. <del>The whole point of the framework was to create a style sheet where the base font-size, line-height and bottom margin could be updated once and all the elements would inherit the calculated values</del>In order to convert the percentage to an integer, we must divide it by 100 (which gives us a decimal point equivalent) and then multiply this by the browser's default font-size. I know that this is, by default, 16px. But if the user changes the default font-size, then what?</p>
+			<p>I did a lot of Googling and tried a few different things to determine the browser's font-size but to no avail. The solution was based on an article at A List Apart. It involves placing a container div around the content and putting all our CSS styling on that, leaving the body untouched. That way we can get browser's default font-size from the body.</p>
+			<p>Unfortunately, IE calculates the browser base font-size in points. So I did another quick Google and found out that a pixel is roughly 1/75th of a point. So if we divide our base font-size by .75 and multiple it by our container's font-size (which has been divided by 100 to give us a fraction) we get the container's computed font-size. We can then multiply this number by the margin and line-height to calculate what values our child elements should get.</p> 
+			<blockquote cite = "http://www.nowhere.com/example.php">
+				<p>A quote from nowhere in particular.</p>
+				<p>The last paragraph.</p>
+			</blockquote>
+		</div>
+	</body>
+</html>

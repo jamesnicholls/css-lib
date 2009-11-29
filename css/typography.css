@@ -4,11 +4,11 @@ acronym,
 .ord,
 .caps
 {
-    font-variant: small-caps; /* This doesn't seem to be supported well */
-    font-size: .7em; /* Dependant on the font */
-    letter-spacing: .1em;
-    margin-left: .1em;
-    font-weight: bold;
+    font-variant: small-caps; /* This doesn't seem to be supported well. It is supported in FF 3.5 but it still seems to large. Will need to provide an alternative for browsers where it is not supported */
+    font-size: .7em; /* Dependant on the font. Test whether the resizing is needed */
+    letter-spacing: 0.1em;
+    margin-left: 0.1em;
+    font-weight: bold; /* Test whether this is needed as well */
 }
 
 .amp {
@@ -20,7 +20,7 @@ acronym,
 }
 
 .fraction {
-    font-size: .6em;
+    font-size: 0.6em;
 }
 
 .fraction .numerator

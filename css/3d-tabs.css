@@ -1,3 +1,5 @@
+@import url(reset.css);
+
 .tabs {
     overflow: hidden;
 }
@@ -10,7 +12,7 @@
     display: block;
     float: left;
     border-left: 2px groove #8ebdf3;
-    background: #8ebdf3 url(img/backgrounds/tab.png) repeat-x;
+    background: #8ebdf3 url(../demos/3d-tabs/img/bg/tab.png) repeat-x;
 }
 
 .tabs li:first-child {
@@ -19,7 +21,7 @@
 }
 
 .tabs .active {
-    background: transparent url(img/backgrounds/active_tab.png) repeat-y right; /* Background image should be same width (including padding) as .tabs li */
+    background: transparent url(../demos/3d-tabs/img/bg/active_tab.png) repeat-y right; /* Background image should be same width (including padding) as .tabs li */
     position: relative;
     z-index: 10;
     border: none;

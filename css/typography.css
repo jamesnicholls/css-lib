@@ -34,6 +34,7 @@ acronym,
     float: left;
     margin: 5px 2px 0 0;
     text-transform: uppercase;
+    margin-top: 0\9; /* For IE 6, 7 & 8 */
 }
 
 .manuscript > p:first-child:first-line {

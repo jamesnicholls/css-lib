@@ -1,14 +1,9 @@
 abbr,
 acronym,
-.period, 
-.ord,
 .caps
 {
     font-variant: small-caps; /* This doesn't seem to be supported well. It is supported in FF 3.5 but it still seems to large. Will need to provide an alternative for browsers where it is not supported */
-    font-size: .7em; /* Dependant on the font. Test whether the resizing is needed */
-    letter-spacing: 0.1em;
-    margin-left: 0.1em;
-    font-weight: bold; /* Test whether this is needed as well */
+    text-transform: lowercase;
 }
 
 .amp {
@@ -33,34 +28,15 @@ acronym,
     vertical-align: sub;
 }
 
-h1 {
-    text-transform: uppercase;
-}
-
 .manuscript > p:first-child:first-letter {
     font-size: 3em;
-    display: block;
+    line-height: 0.87; /* Firefox seems to ignore this value */
     float: left;
+    margin: 5px 2px 0 0;
+    text-transform: uppercase;
 }
 
 .manuscript > p:first-child:first-line {
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Repeat for any headings using uppercase */
-h1 abbr,
-h1 .caps,
-h1 .period,
-h1 .ord,
-.manuscript > p:first-child abbr, /* TODO Target only elements in the first line */
-.manuscript > p:first-child .caps,
-.manuscript > p:first-child .period,
-.manuscript > p:first-child .ord
-{
-    font-size: 1em;
-    font-variant: normal;
-    letter-spacing: 0;
-    margin-left: 0;
-    font-weight: normal;
+    text-transform: lowercase;
+    font-variant: small-caps;
 }

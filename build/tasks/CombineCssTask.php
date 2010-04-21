@@ -55,7 +55,10 @@ class combineCssTask extends Task {
             }
         }
 
+        // remove the @import statements from source css file and add the rest of the css
+        preg_replace($pattern, '', $source);
         
+        file_put_contents($this->target, $source, FILE_APPEND);
     }
     
 }

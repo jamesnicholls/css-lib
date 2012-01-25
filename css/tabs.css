@@ -1,25 +1,35 @@
-.tabs {
+/**
+ * Styles for tabbed navigation
+ *
+ * @author James Nicholls <jamesnicholls11@gmail.com>
+ */
+.tabs
+{
     overflow: visible;
-    border-bottom: 1px solid #9f9f9f;
-    background-color: #f3f3f3;
-    height: 22px;
-    padding-top: 2px;
-    padding-left: 4px;
+	height: 18px; /* Height of element should be equal of the child list items, plus the thickness of their top and bottom borders */
+    border-bottom: 1px solid #000; /* Colour is purely aesthetic */
 }
 
-.tabs li {
-    list-style: none;
+.tabs li
+{
     display: block;
     float: left;
-    border: 1px solid #9f9f9f;
-    background-color: #e4e4e4;
-    margin-right: 2px;
-    padding: 4px 4px;
-    font-size: 12px;
-    margin-top: 1px;
+	margin-top: 1px; /* Pushes elements down on top of the parent element's border */
+    border: 1px solid #000; /* Colour is purely aesthetic */
+    margin-right: 2px; /* Right margin is purely aesthetic */
 }
 
-.tabs li.on {
-    border-bottom: 1px solid white;
-    background-color: #fefefe;
+.tabs li.active
+{
+    border-bottom: 1px solid transparent;
+    background-color: #fff; /* Border and background colour are purely aesthetic but should match the colour of the content of the tabbale element */
+}
+
+/* Reset the grand-child list items. Would use the child selector, but it isn't supported in IE 6 & 7 */
+.tabs li li
+{
+	display: list-item;
+	float: none;
+	border-width: 0;
+	margin: 0;
 }

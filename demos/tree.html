@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en-GB">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>CSS Framework: Tree Example</title>
+        <link href = "../css/reset.css" type = "text/css" rel = "stylesheet">
+		<link href = "../css/tree.css" type = "text/css" rel = "stylesheet">
+    </head>
+    <body>
+        <ul class="tree">
+            <li>
+                <span>Australia</span>
+                <ul>
+                    <li class="first-child"><!-- Classes have to be applied for IE 6, which doesn't support the child psuedo-classes -->
+                        <span>South Australia</span>
+                        <ul>
+                            <li class="first-child">
+                                <span>Adelaide</span>
+                            </li>
+                            <li class="last-child">
+                                <span>Victor Harbour</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>ACT</span>
+                        <ul>
+                            <li class="only-child">
+                                <span>Canberra</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="last-child">
+                        <span>Victoria</span>
+                        <ul>
+                            <li class="first-child">
+                                <span>Melbourne</span>
+                            </li>
+                            <li class="last-child">
+                                <span>Ballarat</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </body>
+</html>

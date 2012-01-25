@@ -1,0 +1,65 @@
+/**
+ * Styles for displaying hierarchical data structures
+ *
+ * @author James Nicholls <jamesnicholls11@gmail.com>
+ */
+.tree
+{
+	*height: 1%; /* Force hasLayout in IE 6 & 7, in order to clear floats */
+}
+
+/* Clear floats */
+.tree:after,
+.tree ul:after
+{
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	height: 0;
+}
+
+.tree li
+{
+	display: block;
+	float: left;
+	text-align: center;
+	*height: 1%;
+}
+
+.tree li ul
+{	
+	background: url(../img/tree/top.gif) no-repeat top center;
+	padding-top: 30px; /* Equal to the height of the bg image */
+	*height: 1%;
+	*display: inline;
+	*float: left;
+}
+
+.tree ul li
+{
+	padding: 30px 5px 0; /* Top padding equal to the height of the background image. Left and right padding is purely aesthetic */
+	background: url(../img/tree/middle.gif) no-repeat top center;
+}
+
+.tree ul li:first-child,
+.tree ul li.first-child
+{
+	background: url(../img/tree/left.gif) no-repeat top center;
+}
+
+.tree ul li:last-child
+{
+	background: url(../img/tree/right.gif) no-repeat top center;
+}
+
+/* For IE, which stops parsing a selector that contains the :last-child psuedo-selector */
+.tree ul li.last-child
+{
+	background: url(../img/tree/right.gif) no-repeat top center;
+}
+
+.tree ul li.only-child
+{
+	background: url(../img/tree/top.gif) no-repeat top center;
+}

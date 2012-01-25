@@ -1,0 +1,25 @@
+/**
+ * Styles for arranging list items in a grid. List items will line up side-by-side as wide as the parent element, with the following row dropping below the bottom of the tallest list item
+ *
+ * @author James Nicholls <jamesnicholls11@gmail.com>
+ */
+.grid li
+{
+    width: 200px;
+    min-height: 250px; /* Height and width properties can be adjusted as needed */
+    display: -moz-inline-stack; /* For FF 2 */
+    display: inline-block;
+    vertical-align: top;
+    zoom: 1; /* Force hasLayout in IE 6 & 7 */
+    *display: inline; /* For IE 6 & 7, which don't handle inline-block properly */
+    _height: 250px; /* For IE 6. This should match the value of the min-height property */
+}
+
+/* Reset the values for any grand-child list items. Would use the child selector, but it isn't supported in IE 6 & 7 */
+.grid li li
+{
+	width: auto;
+	height: auto;
+	display: list-item;
+	vertical-align: baseline; /* Default value based on reset.css */
+}

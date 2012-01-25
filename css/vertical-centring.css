@@ -1,0 +1,30 @@
+/**
+ * Styles for vertically centring elements
+ *
+ * @author James Nicholls <jamesnicholls11@gmail.com>
+ */
+.v-centre
+{
+    position: relative;
+    display: table;
+}
+
+.v-centre .content
+{
+    display: table-cell;
+    vertical-align: middle;
+    *position: absolute; /* For IE 6 & 7, which don't support table display properties on anything but tables */
+    *top: 50%;
+}
+
+/* For IE 6 & 7, which don't support table display properties on anything but tables */
+.v-centre .content *
+{
+    *position: relative;
+    *top: -50%;
+}
+
+.v-centre .content * *
+{
+	*position: static;
+}

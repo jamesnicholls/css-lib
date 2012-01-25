@@ -1,30 +1,27 @@
-/*
-Forms CSS
-Description: A framework for the basic layout of form elements. It is based on the three variations of form layout propsed by Luke Wroblewski here: http://www.uie.com/articles/web_forms/. This version differs from version 1 in that it assumes list-items are used to wrap label-input/select/textarea pairs.
-Version: 2.0
-Author: James Nicholls
-Author URI:
-*/
-
-/* =baseline */
-form {
+/**
+ *
+ * A framework for the basic layout of form elements. It is based on the three variations of form layout propsed by Luke Wroblewski here: http://www.uie.com/articles/web_forms/
+ * James Nicholls <jamesnicholls11@gmail.com>
+ */
+form
+{
     width: 100%;
 }
 
-fieldset {
+fieldset
+{
     clear: both;
 }
 
-legend {
-    font-weight: bold;
+/* Each label-field pair is wrapped in a list item. This makes styling easier in IE 6 & 7 and adds a semantic wrapper to pairs */
+form li
+{
+	margin-bottom: 1em; /* This is purely aesthetic */
+    _height: 1%; /* Force hasLayout in IE 6, in order to clear floats */
 }
 
-form li {
-    _height: 1%; /* For IE 6 */
-    margin-bottom: 1em;
-}
-
-form li:after {
+form li:after /* Clear floats in standards-compliant browsers */
+{
     content: '.';
     visibility: hidden;
     display: block;
@@ -32,74 +29,86 @@ form li:after {
     clear: both;
 }
 
-label, select, input, textarea {
-    display: block;
-}
-
+label,
 select,
 input,
 textarea
 {
-    float: left; /* For image validation */
+    display: block;
 }
 
-input[size] {
+input[size] /* Attribute selector will not work in IE <= 7 */
+{
     width: auto;
 }
 
-input.additional {
-    clear: left; /* TODO Check if validation images float correctly */
-    margin-top: 0.5em;
-}
-
-label {
+label
+{
     font-weight: bold;
     clear: left;
 }
 
-label:after {
+label:after
+{
     content: ":";
 }
 
-form .default {
+form .additional /* Use this class to add an additional form element to a field-label combination */
+{
+    clear: left;
+    margin-top: 0.5em;
+}
+
+form .placeholder /* Apply this class to input elements that contain placeholder content. The styles are purely aesthetic */
+{
     color: #999;
     background-color: #fff;
     font-style: oblique;
 }
 
-form .hint {
+form .hint /* Use this class for descriptive text, format information, validation etc. for a field */
+{
     font-size: .8em;
     position: relative;
-    clear: left; /* TODO Check if validation images float correctly */
+    clear: left;
     margin-top: 0.6em;
 }
 
-button {
+button
+{
     float: left;
 }
 
-button#primary_action {
+button.primary-action
+{
     font-weight: bold;
 }
 
-button+button {
+button+button
+{
     margin-left: 2%;
     color: #666;
 }
 
-button+a {
+button+a
+{
     display: block;
     float: left;
     margin-left: 2%;
 }
 
-/* =option set component */
-.option-set {
+/**
+ * =option set component
+ * Use option sets for sets of radio buttons or check boxes
+ */
+.option-set
+{
     position: relative;
-    *height: 1%; /* For IE 6 & 7 */
+    *height: 1%; /* Force hasLayout in IE 6 & 7, in order to clear floats */
 }
 
-.options-set:after {
+.options-set:after /* Clear floats in standards-compliant browsers */
+{
     content: '.';
     display: block;
     clear: both;
@@ -107,89 +116,60 @@ button+a {
     visibility: none;
 }
 
-.option-set p {
+.option-set p
+{
     margin-left: 0;
     font-weight: bold;
 }
 
-.option-set p:after {
+.option-set p:after
+{
     content: ":";
 }
 
-li.option-set label {
+.option-set label
+{
     float: right;
     width: 95%;
     text-align: left;
     font-weight: normal;
 }
 
-.option-set label:after {
+.option-set label:after
+{
     content: "";
 }
 
-.option-set input {
-    float: left; /* Switch to float: right */
+.option-set input
+{
+    float: left;
     margin-bottom: .5em;
     margin-top: 0;
 }
 
-/* =error component */
-form li.error input, 
-form li.error textarea 
+/**
+ * =error component
+ * Error classes for fields and labels. These styles are purely aesthetic */
+ */
+form .error input, 
+form .error textarea 
 {
     border: 1px solid #EF1D2A;
     background-color: #fef;
     color: inherit;
 }
 
-form li.error p, 
-form li.error label 
+form .error p, 
+form .error label 
 {
     color: #EF1D2A;
     background-color: transparent;
 }
 
-/* =message component */
-.message {
-    color: #000;
-    border: 1px solid #e6db55;
-    padding: 1em;
-    
-}
-
-.message p {
-    margin-left: 0;
-}
-
-.message.error {
-    background: url(../img/icons/cross.png) no-repeat 10px 50% #fffbcc;
-    padding-left: 36px;
-}
-
-.message.error a {
-    color: #EF1D2A;
-}
-
-.message.success {
-    background: url(../img/icons/tick.png) no-repeat 10px 50% #fffbcc;
-    padding-left: 36px;
-}
-
-/* =live validation component */ /* TODO Possibly move to a separate style sheet */
-form img.validation {
-    float: left;
-    display: block;
-    margin-left: 2px;
-    border: none;
-}
-
-.option-set img.validation {
-    position: absolute;
-    top: 0;
-    left: 65%; /* This value is dependant on the line-length of the option_set's labels */
-}
-
-/* =horizontal form component */
+/**
+ * =horizontal form component
+ * Horizontal class lines up fields and labels side-by-side. Can apply additional .left-aligned class to align the labels along the left side of the form. Otherwise the elements will be aligned to the left side of the fields
+ */
 .horizontal label,
 .horizontal select,
 .horizontal input,
@@ -200,7 +180,8 @@ form img.validation {
     vertical-align: baseline;
 }
 
-.horizontal label {
+.horizontal label
+{
     width: 50%;
     text-align: right;
     padding-right: 1%;
@@ -208,28 +189,34 @@ form img.validation {
     clear: none;
 }
 
-.horizontal label:after {
+.horizontal label:after
+{
     content: none;
 }
 
-.horizontal.left-aligned label {
+.horizontal.left-aligned label
+{
     text-align: left;
 }
 
-.horizontal .additional {
+.horizontal .additional
+{
     margin-left: 52%;
 }
 
-form.horizontal p {
+form.horizontal p
+{
     clear: left;
     margin-left: 52%;
 }
 
-.horizontal #primary_action {
+.horizontal .primary-action
+{
     margin-left: 52%;
 }
 
-.horizontal .option-set p {
+.horizontal .option-set p
+{
     width: 50%;
     margin-left: 0;
     text-align: right;
@@ -237,21 +224,25 @@ form.horizontal p {
     float: left;
 }
 
-.horizontal .option-set p:after {
+.horizontal .option-set p:after
+{
     content: '';
 }
 
-.horizontal.left-aligned .option-set p {
+.horizontal.left-aligned .option-set p
+{
     text-align: left;
 }
 
-.horizontal .option-set label {
+.horizontal .option-set label
+{
     text-align: left;
     float: right;
     width: 44%;
 }
 
-.horizontal .option-set input {
+.horizontal .option-set input
+{
     vertical-align: top;
     margin-left: 51%;
     display: block;

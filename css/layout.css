@@ -1,41 +1,44 @@
-/*
-Title: Layout CSS
-Description: Sets up defaults for a centred layout with a footer, fixed at the bottom of the page.
-Version: 1.2
-Author: James Nicholls
-Author URI:
-*/
-
-html {
+/**
+ * Layout styles for a page with centred content and a sticky footer.
+ *
+ * @author James Nicholls <jamesnicholls11@gmail.com>
+ */
+html
+{
     height: 100%;
     text-align: center; /* For IE 6 and below, which will not correctly centre the body without it. */
 }
 
-body {
-    max-width: 100%; /* I have changed the max-width to a percentage-based value. This is not because I feel layout shouldn't be dependant on typography as I previously commented (in fact a good layout will be based on the typography) but because setting a value below or equal to 100% will keep the user from having to scroll horizontally. This is really a personal preference, and comes down to whether you value line-length and readibility or the lack of horizontal scrollbars more. */
+body
+{
+    max-width: 100%;
     min-width: 760px;
-    width: 60em; /* Of course, now the width becomes dependant on typography and will expand with the font size (see the comment above). 60em works out to be 960px at the default browser size of 16px (960/12 = 60). */
+    width: 60em; /* 60em works out to be 960px at the default browser size of 16px (960/12 = 60). */
     min-height: 100%;
     margin: 0 auto;
     text-align: left; /* Resets the text-alignment from the html selector. */
     position: relative;
 }
 
-* html body {
+* html body
+{
     height: 100%; /* For IE 6 and below, which doesn't recognise min-height but treats height in the same way */
 }
 
-#page_wrapper { /* Add this abitrary div to the HTML for IE lte 7, which doesn't size font specified at less than 100% on body tag properly */
+#page-wrapper /* Add this abitrary div to the HTML for IE <= 7, which doesn't re-size type properly when font-size is specified at less than 100% on body tag */
+{ 
     font-size: 62.5%;
 }
 
-#content {
+#content
+{
     padding-bottom: 2.5em; /* Equal to the height of the footer, plus any desired white-space between the end of the content div and the footer.*/
     _height: 1%; /* For IE 6. Will invoke hasLayout and clear any floated divs within #content */
 }
 
 /* Clears any floats within #content */
-#content:after {
+#content:after
+{
     content: '.';
     display: block;
     clear: both;
@@ -43,7 +46,8 @@ body {
     visibility: hidden;
 }
 
-#footer {
+#footer
+{
     position: absolute;
     bottom: 0;
     height: 2.5em;

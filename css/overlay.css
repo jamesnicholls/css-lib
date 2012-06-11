@@ -35,14 +35,14 @@
 
 .overlay .pointer.bottom
 {
-	bottom: -16px; /* Equal to length of the pointer (see .overlay .pointer border-width)  + 1 */
+	bottom: -16px; /* Inverse of the length of the pointer (see .overlay .pointer border-width)  + 1 */
 	border-bottom: 0;
 }
 
 .overlay .pointer.top
 {
 	border-top: 0;
-	top: -16px; /* Equal to length of the pointer (see .overlay .pointer border-width)  + 1 */
+	top: -16px; /* Inverse of the length of the pointer (see .overlay .pointer border-width)  + 1 */
 }
 
 .overlay .pointer.left,
@@ -55,12 +55,12 @@
 
 .overlay .pointer.left
 {
-	left: -16px; /* Equal to length of the pointer (see .overlay .pointer border-width) + 1 */
+	left: -16px; /* Inverse of the length of the pointer (see .overlay .pointer border-width) + 1 */
 	border-left: 0;
 }
 
 .overlay .pointer.right
 {
-	right: -16px; /* Equal to length of the pointer (see .overlay .pointer border-width) + 1 */
+	right: -16px; /* Inverse of the length of the pointer (see .overlay .pointer border-width) + 1 */
 	border-right: 0;
 }

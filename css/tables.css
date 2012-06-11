@@ -11,29 +11,36 @@ IE 6 and below does not support hover on any elements except links.
 Styling on columns is very tempremental. It seems to only if using an id and only supports the background properties.
 */
 
-table {
+table
+{
     font-family: "News Gothic MT", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif; /* Use slim fonts that make use of white-space */
     border-top: 2px solid #000;
 }
 
-td, th {
+td,
+th
+{
     padding: .2em .2em .3em .2em;
 }
 
-th {
+th
+{
     font-weight: bold;
 }
 
-thead th {
+thead th
+{
     text-align: center;
     border-bottom: 1px solid #000;
 }
 
-tfoot td {
+tfoot td
+{
     font-weight: bold;
 }
 
-td {
+td
+{
     background-color: #fff;
     color: #000;
 }
@@ -47,23 +54,26 @@ tbody tr:nth-child(odd) th
 }
 
 tbody tr.odd td,
-tbody tr.odd th
+tbody tr.odd th /* Although redundant, I split these two rulesets from above because the nth-child selector was causing problems in FF */
 {
     background-color: #f4f7fb;
-    /*color: #000;*/
-} /* Although redundant, I split these two rulesets because the nth-child selector was causing problems in FF */
+    color: #000;
+} 
 
-th.number, td.number {
+th.number,
+td.number {
     text-align: right;
 }
 
-col#emphasise {
+col.emphasise
+{
     background-color: #eee;
 }
 
 tbody tr:hover td,
 tbody tr:hover th,
-tbody tr.odd:hover td {
+tbody tr.odd:hover td 
+{
     background-color: #5b96e0;
     color: #fff;
 }

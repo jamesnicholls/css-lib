@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
   "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<html lang="en-GB">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>CSS Framework: Forms Example</title>
@@ -19,7 +19,6 @@
       }
     </style>
   </head>
-  
   <body>
     <p>A demonstration of three form layouts, using only slight variations of the one CSS file.</p>
     <form method="get" action="nowhere.php" id="style_switcher">
@@ -38,35 +37,35 @@
         <legend>Some fields</legend>
         <ol>
           <li>
-            <label for = "input1">Label</label>
-            <input type = "text" id = "input1" name = "input1" title = "input1" />
+            <label for="input1">Label</label>
+            <input class="placeholder" type="text" id="input1" name="input1" title="input1" value="This is placeholder text">
           </li>
           <li>
-            <label for = "input2">Longer label</label>
-            <select id = "input2" name = "input2">
+            <label for="input2">Longer label</label>
+            <select id="input2" name="input2">
               <option>Option 1</option>
               <option>Option 2</option>
               <option>Other</option>
             </select>
-            <input type = "text" name = "input2" class = "additional" id = "input2_other"/>
+            <input type="text" name="input2" class="additional" id="input2_other">
           </li>
           <li>
-            <label for = "input3">Even longer label</label>
-            <input type = "text" id = "input3" name = "input3" />
-            <p class = "hint">P elements with a class of hint can be attached to form list-items.</p>
+            <label for="input3">Even longer label</label>
+            <input type="text" id="input3" name="input3">
+            <p class="hint">P elements with a class of hint can be attached to form list-items.</p>
           </li>
-          <li class = "option-set" id = "input4">
-            <p>One more label</p><!-- not sure if a solo label such as this causes problems. Changed it for styling purposes. -->
-            <label for = "input4-1">Value 1</label><input type = "radio" id = "input4-1" name = "input4" value = "Value 1" />
-            <label for = "input4-2">Value 2</label><input type = "radio" id = "input4-2" name = "input4" value = "Value 2" />
+          <li class="option-set" id="input4">
+            <p>One more label</p>
+            <label for="input4-1">Value 1</label><input type="radio" id="input4-1" name="input4" value="Value 1">
+            <label for="input4-2">Value 2</label><input type="radio" id="input4-2" name="input4" value="Value 2">
+          </li>
+          <li class="error">
+            <label for="input5">Yet another label</label>
+            <input id="input5" name="input5" type="text">
           </li>
           <li>
-            <label for = "input5">Yet another label</label>
-            <input id = "input5" name = "input5" type = "text" />
-          </li>
-          <li>
-            <button class="primary-action" type = "submit">Primary action</button>
-            <button class="secondary-action" type = "button">Secondary action</button>
+            <button class="primary-action" type="submit">Primary action</button>
+            <button class="secondary-action" type="button">Secondary action</button>
           </li>
         </ol>
       </fieldset>
@@ -76,7 +75,7 @@
        var className = this.options[this.selectedIndex].value;
         
         var form = document.getElementById('form');
-        form.className = className
+        form.className = className;
       }
     </script>
   </body>

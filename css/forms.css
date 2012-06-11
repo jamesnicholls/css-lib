@@ -62,13 +62,12 @@ form .additional /* Use this class to add an additional form element to a field-
 form .placeholder /* Apply this class to input elements that contain placeholder content. The styles are purely aesthetic */
 {
     color: #999;
-    background-color: #fff;
-    font-style: oblique;
+    font-style: italic;
 }
 
 form .hint /* Use this class for descriptive text, format information, validation etc. for a field */
 {
-    font-size: .8em;
+    font-size: 0.8em;
     position: relative;
     clear: left;
     margin-top: 0.6em;
@@ -145,25 +144,6 @@ button+a
     float: left;
     margin-bottom: .5em;
     margin-top: 0;
-}
-
-/**
- * =error component
- * Error classes for fields and labels. These styles are purely aesthetic */
- */
-form .error input, 
-form .error textarea 
-{
-    border: 1px solid #EF1D2A;
-    background-color: #fef;
-    color: inherit;
-}
-
-form .error p, 
-form .error label 
-{
-    color: #EF1D2A;
-    background-color: transparent;
 }
 
 /**

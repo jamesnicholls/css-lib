@@ -1,0 +1,1 @@
+A collection of HTML and CSS snippets for implementing common UI patterns (e.g. tabs, sticky footers, tiled layout). The library only attempts to provide structural styles. Unlike Bootstrap, it doesn't define any classes that are used for aesthetic purposes. Any aesthetic styles are only for demonstration purposes and are intended to be overridden.

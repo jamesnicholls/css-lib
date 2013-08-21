@@ -1,33 +1,22 @@
 /**
- * Layout styles for a page with centred content and a sticky footer.
+ * Sticky footer module. On pages that are not taller than the viewport, the footer will stick to the bottom of the viewport. Otherwise it will appear at the end of the page.
  *
  * @author James Nicholls <jamesnicholls11@gmail.com>
  */
 html
 {
     height: 100%;
-    text-align: center; /* For IE 6 and below, which will not correctly centre the body without it. */
 }
 
 body
 {
-    max-width: 100%;
-    min-width: 760px;
-    width: 60em; /* 60em works out to be 960px at the default browser size of 16px (960/12 = 60). */
     min-height: 100%;
-    margin: 0 auto;
-    text-align: left; /* Resets the text-alignment from the html selector. */
     position: relative;
 }
 
 * html body
 {
     height: 100%; /* For IE 6 and below, which doesn't recognise min-height but treats height in the same way */
-}
-
-#page-wrapper /* Add this abitrary div to the HTML for IE <= 7, which doesn't re-size type properly when font-size is specified at less than 100% on body tag */
-{ 
-    font-size: 62.5%;
 }
 
 #content

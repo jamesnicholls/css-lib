@@ -22,7 +22,7 @@ phantomcss.init({
         var name = root + fs.separator + filename;
 
         if (fs.isFile(name + '.png')) {
-            return name + 'diff.png';
+            return name + '.diff.png';
         } else {
             return name + '.png';
         }

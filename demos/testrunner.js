@@ -11,7 +11,7 @@ var casper = require("casper").create({
     port       = 3128,
     host       = 'http://localhost:' + port + '/',
     files      = fs.list('./').filter(function(file, i) {
-        return file.match(/\.html$/);
+        return file.match(/\.html$/) && file != 'resemblejscontainer.html';
     }),
     i          = 0;
 

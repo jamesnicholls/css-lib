@@ -3,7 +3,7 @@
  *
  * @author James Nicholls <jamesnicholls11@gmail.com>
  */
-.grid li
+.tiles li
 {
     width: 200px;
     min-height: 250px; /* Height and width properties can be adjusted as needed */
@@ -16,7 +16,7 @@
 }
 
 /* Reset the values for any grand-child list items. Would use the child selector, but it isn't supported in IE 6 & 7 */
-.grid li li
+.tiles li li
 {
 	width: auto;
 	height: auto;

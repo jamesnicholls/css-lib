@@ -44,25 +44,13 @@ input[size] /* Attribute selector will not work in IE <= 7 */
 
 label
 {
-    font-weight: bold;
     clear: left;
-}
-
-label:after
-{
-    content: ":";
 }
 
 form .additional /* Use this class to add an additional form element to a field-label combination */
 {
     clear: left;
     margin-top: 0.5em;
-}
-
-form .placeholder /* Apply this class to input elements that contain placeholder content. The styles are purely aesthetic */
-{
-    color: #999;
-    font-style: italic;
 }
 
 form .hint /* Use this class for descriptive text, format information, validation etc. for a field */
@@ -78,15 +66,9 @@ button
     float: left;
 }
 
-button.primary-action
-{
-    font-weight: bold;
-}
-
 button+button
 {
     margin-left: 2%;
-    color: #666;
 }
 
 button+a
@@ -119,11 +101,6 @@ button+a
 {
     margin-left: 0;
     font-weight: bold;
-}
-
-.option-set p:after
-{
-    content: ":";
 }
 
 .option-set label
@@ -165,7 +142,6 @@ button+a
     width: 50%;
     text-align: right;
     padding-right: 1%;
-    font-weight: normal;
     clear: none;
 }
 

@@ -1,0 +1,53 @@
+/**
+ * Pointer
+ */
+.pointer {
+    position: relative;
+}
+
+.pointer:after {
+    display: block;
+    height: 0;
+    width: 0;
+    position: absolute;
+    content: '';
+    border: 0 inset transparent;
+}
+
+.pointer.right:after {
+    top: 50%;
+    left: 100%;
+    border-left: 20px solid black; /* Length of pointer */
+    border-top-width: 10px; /* Half the width of the pointer */
+    border-bottom-width: 10px; /* Half the width of the pointer */
+    margin-top: -10px; /* Half the width of the pointer */
+}
+
+.pointer.left:after {
+    top: 50%;
+    left: 0;
+    margin-top: -10px;
+    margin-left: -20px;
+    border-right: 20px solid black;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+}
+
+.pointer.top:after {
+    top: 0;
+    left: 50%;
+    margin-left: -10px;
+    margin-top: -20px;
+    border-bottom: 20px solid black;
+    border-left-width: 10px;
+    border-right-width: 10px;
+}
+
+.pointer.bottom:after {
+    top: 100%;
+    left: 50%;
+    margin-left: -10px;
+    border-top: 20px solid black;
+    border-left-width: 10px;
+    border-right-width: 10px;
+}

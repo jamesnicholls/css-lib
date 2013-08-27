@@ -100,7 +100,6 @@ button+a
 .option-set p
 {
     margin-left: 0;
-    font-weight: bold;
 }
 
 .option-set label
@@ -109,11 +108,6 @@ button+a
     width: 95%;
     text-align: left;
     font-weight: normal;
-}
-
-.option-set label:after
-{
-    content: "";
 }
 
 .option-set input
@@ -178,11 +172,6 @@ form.horizontal p
     text-align: right;
     font-weight: normal;
     float: left;
-}
-
-.horizontal .option-set p:after
-{
-    content: '';
 }
 
 .horizontal.left-aligned .option-set p

@@ -148,7 +148,7 @@ button+a
     text-align: left;
 }
 
-.horizontal .additional
+.horizontal input + input
 {
     margin-left: 52.5%;
 }
@@ -159,7 +159,7 @@ form.horizontal p
     margin-left: 52%;
 }
 
-.horizontal .primary-action
+.horizontal button:first-of-type
 {
     margin-left: 52%;
 }

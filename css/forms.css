@@ -151,7 +151,7 @@ button+a
 
 .horizontal .additional
 {
-    margin-left: 52%;
+    margin-left: 52.5%;
 }
 
 form.horizontal p
@@ -183,12 +183,12 @@ form.horizontal p
 {
     text-align: left;
     float: right;
-    width: 44%;
+    width: 42.5%;
 }
 
 .horizontal .option-set input
 {
     vertical-align: top;
-    margin-left: 51%;
+    margin-left: 52.5%;
     display: block;
 }

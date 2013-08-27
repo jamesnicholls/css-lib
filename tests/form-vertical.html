@@ -9,28 +9,30 @@
   </head>
 
   <body>
-    <form style="width: 450px" method="post" action="">
+    <form style="width: 450px" method="post">
       <fieldset>
         <legend>Some fields</legend>
         <ol>
           <li>
-            <label for = "input1">Label</label>
+            <label for = "input1">Standard input field</label>
             <input type = "text" id = "input1" name = "input1" title = "input1" />
           </li>
           <li>
-            <label for = "input2">Longer label</label>
+            <label for = "input2">Select field</label>
             <select id = "input2" name = "input2">
               <option>Option 1</option>
               <option>Option 2</option>
             </select>
           </li>
           <li>
-            <label for = "input3">Even longer label</label>
+            <label for = "input3">Field with multiple inputs</label>
             <input type = "text" id = "input3" name = "input3" />
+            <input type = "text" id = "input3" name = "input3">
+            <input type = "text" id = "input3" name = "input3">
           </li>
           <li>
             <fieldset class = "option-set" id = "input4">
-              <p>One more label</p>
+              <p>Option set</p>
               <label for = "input4-1">Value 1</label>
               <input type = "radio" id = "input4-1" name = "input4" value = "Value 1" />
               <label for = "input4-2">Value 2</label>
@@ -38,8 +40,8 @@
             </fieldset>
           </li>
           <li>
-            <button id = "primary_action" type = "submit">Primary action</button>
-            <button class = "secondary_action" type = "button">Secondary action</button>
+            <button type = "submit">Primary action</button>
+            <button type = "button">Secondary action</button>
           </li>
         </ol>
       </fieldset>

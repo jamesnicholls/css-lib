@@ -1,3 +1,6 @@
+phantom.casperPath = '../bower_components/phantomcss/CasperJs';
+phantom.injectJs(phantom.casperPath + '/bin/bootstrap.js');
+
 var casper = require("casper").create({
         verbose: true,
         viewportSize: {
@@ -7,15 +10,16 @@ var casper = require("casper").create({
     }),
     fs         = require('fs'),
     server     = require('webserver').create(),
-    phantomcss = require('./phantomcss.js'),
+    phantomcss = require('../bower_components/phantomcss/phantomcss.js'),
     port       = 3128,
     host       = 'http://localhost:' + port + '/',
     files      = fs.list('./').filter(function(file, i) {
-        return file.match(/\.html$/) && file != 'resemblejscontainer.html';
+        return file.match(/\.html$/);
     }),
     i          = 0;
 
 phantomcss.init({
+    libraryRoot: '../bower_components/phantomcss',
     screenshotRoot: './screenshots',
     failedComparisonsRoot: './failures',
     fileNameGetter: function(root, filename) {

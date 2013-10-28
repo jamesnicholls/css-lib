@@ -1,0 +1,20 @@
+.dropdownmenu {
+    overflow: visible;
+    float: left; /* In order to clear floats, we float the parent container. Would use ::after clearfix method but have been warned against this (see http://www.tjkdesign.com/articles/clearing-floats_and_block-formatting_context.asp) */
+    width: 100%;
+}
+
+.dropdownmenu > li {
+    float: left;
+    position: relative;
+}
+
+.dropdownmenu > li > ul {
+    position: absolute;
+    width: 100%;
+    left: -9999em;
+}
+
+.dropdownmenu > li:hover > ul {
+    left: 0;
+}

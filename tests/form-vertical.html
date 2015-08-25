@@ -9,34 +9,47 @@
   </head>
 
   <body>
-    <form style="width: 450px" method="post">
+    <form class="s-form" style="width: 450px" method="post">
       <fieldset>
         <legend>Some fields</legend>
         <ol>
-          <li>
-            <label for = "input1">Standard input field</label>
-            <input type = "text" id = "input1" name = "input1" title = "input1" />
+          <li class="s-form__field">
+            <label class="s-forms-field__label" for = "input1">Standard input field</label>
+            <input class="s-forms-field__control" type = "text" id = "input1" name = "input1" title = "input1" />
           </li>
-          <li>
-            <label for = "input2">Select field</label>
-            <select id = "input2" name = "input2">
+          <li class="s-form__field">
+            <label for = "input1">Standard input field</label>
+            <input type = "color" name = "input1" />
+          </li>
+          <li class="s-form__field"><label for="">Date field</label><input type="date"></li>
+          <li class="s-form__field"><label for="">Datetime field</label><input type="datetime"></li>
+          <li class="s-form__field"><label for="">Month field</label><input type="month"></li>
+          <li class="s-form__field"><label for="">Number field</label><input type="number"></li>
+          <li class="s-form__field"><label for="">Range field</label><input type="range"></li>
+          <li class="s-form__field"><label for="">Search field</label><input type="search"></li>
+          <li class="s-form__field"><label for="">Tel field</label><input type="tel"></li>
+          <li class="s-form__field"><label for="">Time field</label><input type="time"></li>
+          <li class="s-form__field"><label for="">URL field</label><input type="url"></li>
+          <li class="s-form__field"><label for="">Week field</label><input type="week"></li>
+          <li class="s-form__field">
+            <label class="s-forms-field__label" for = "input2">Select field</label>
+            <select class="s-forms-field__control" id = "input2" name = "input2">
               <option>Option 1</option>
               <option>Option 2</option>
             </select>
           </li>
-          <li>
-            <label for = "input3">Field with multiple inputs</label>
-            <input type = "text" id = "input3" name = "input3" />
-            <input type = "text" id = "input3" name = "input3">
-            <input type = "text" id = "input3" name = "input3">
+          <li class="s-form__field">
+            <label class="s-forms-field__label" for = "input3">Field with multiple inputs</label>
+            <input class="s-forms-field__control" type = "text" name = "input3" />
+            <input class="s-forms-field__control" type = "text" name = "input3">
           </li>
           <li>
-            <fieldset class = "option-set" id = "input4">
-              <p>Option set</p>
+            <fieldset class="s-form__option-set">
+              <legend>Option set</legend>
               <label for = "input4-1">Value 1</label>
               <input type = "radio" id = "input4-1" name = "input4" value = "Value 1" />
-              <label for = "input4-2">Value 2</label>
-              <input type = "radio" id = "input4-2" name = "input4" value = "Value 2" />
+              <!-- <label for = "input4-2">Value 2</label>
+              <input type = "radio" id = "input4-2" name = "input4" value = "Value 2" /> -->
             </fieldset>
           </li>
           <li>

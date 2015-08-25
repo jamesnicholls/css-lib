@@ -1,0 +1,16 @@
+.#{$base-namespace}-fixed-thead {
+    position: relative;
+    padding-top: 1em;
+    box-sizing: border-box;
+
+    table {
+        display: block;
+        height: 100%;
+        overflow: scroll;
+    }
+
+    &__th-inner {
+        position: absolute;
+        top: 0;
+    }
+}

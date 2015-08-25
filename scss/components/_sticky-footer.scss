@@ -1,0 +1,23 @@
+@mixin abs-sticky-footer($content-selector, $footer-selector, $footer-height) {
+    html {
+        // html requires an explicit height
+        height: 100%;
+    }
+
+    body {
+        min-height: 100%;
+        position: relative;
+    }
+
+    #{$content-selector} {
+        @extend %abs-clearfix;
+        padding-bottom: $footer-height;
+    }
+
+    #{$footer-selector} {
+        position: absolute;
+        bottom: 0;
+        height: $footer-height;
+        width: 100%;
+    }
+}

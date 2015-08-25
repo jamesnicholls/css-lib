@@ -1,0 +1,84 @@
+$component-namespace: $base-namespace + 'form';
+
+$abs-form-full-width-control-selector: 'input:not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="image"]):not([type="reset"]):not([type="submit"]), select, textarea';
+
+.#{$component-namespace}__field {
+    label,
+    input {
+        display: block;
+        box-sizing: border-box;
+    }
+
+    $abs-form-full-width-control-selector {
+        width: 100%;
+
+        &[size] {
+            width: auto;
+        }
+    }
+}
+
+.#{$component-namespace}__option-set {
+    legend {
+        box-sizing: border-box;
+    }
+
+    label {
+        float: right;
+        text-align: left;
+        width: 95%;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        float: left;
+        margin-top: 0;
+    }
+}
+
+.#{$component-namespace}--horizontal {
+    .#{$component-namespace}__field {
+        overflow: hidden; // should use a mixin
+    }
+
+    label,
+    #{$abs-form-full-width-control-selector},
+    .#{$component-namespace}-option-set legend {
+        float: left;
+        width: 50%;
+    }
+
+    label,
+    .#{$component-namespace}-option-set legend {
+        padding-right: 5px;
+    }
+
+    #{$abs-form-full-width-control-selector} + #{$abs-form-full-width-control-selector} {
+        margin-left: 50%;
+    }
+
+    button:first-of-type {
+        margin-left: 50%;
+    }
+}
+
+.#{$component-namespace}--right-aligned {
+    label,
+    .#{$component-namespace}-option-set legend {
+        text-align: right;
+    }
+}
+
+.#{$component-namespace}-control-group {
+    &__affix {
+        display: table-cell;
+        width: 1%;
+        white-space: nowrap;
+        vertical-align: middle;
+    }
+
+    input[type="text"], // TODO Need to define all input types that should be 100% width by default
+    select {
+        display: table-cell;
+    }
+}

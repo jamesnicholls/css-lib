@@ -1,22 +1,22 @@
-phantom.casperPath = '../bower_components/phantomcss/CasperJs';
-phantom.injectJs(phantom.casperPath + '/bin/bootstrap.js');
+// phantom.casperPath = '../bower_components/phantomcss/CasperJs';
+// phantom.injectJs(phantom.casperPath + '/bin/bootstrap.js');
 
-var casper = require("casper").create({
-        verbose: true,
-        viewportSize: {
-            width: 1024,
-            height: 760
-        }
-    }),
-    fs         = require('fs'),
-    server     = require('webserver').create(),
-    phantomcss = require('../bower_components/phantomcss/phantomcss.js'),
-    port       = 3128,
-    host       = 'http://localhost:' + port + '/',
-    files      = fs.list('./').filter(function(file, i) {
-        return file.match(/\.html$/);
-    }),
-    i          = 0;
+// var casper = require("casper").create({
+//         verbose: true,
+//         viewportSize: {
+//             width: 1024,
+//             height: 760
+//         }
+//     }),
+var fs = require('fs');
+var server = require('webserver').create();
+var phantomcss = require('../bower_components/phantomcss/phantomcss.js');
+var port = 3128;
+var host = 'http://localhost:' + port + '/';
+var files = fs.list('./').filter(function(file, i) {
+    return file.match(/\.html$/);
+});
+var i = 0;
 
 phantomcss.init({
     libraryRoot: '../bower_components/phantomcss',

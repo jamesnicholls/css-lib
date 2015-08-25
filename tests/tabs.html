@@ -4,14 +4,19 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>CSS Framework: Tabs Example</title>
-        <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen">
-        <link rel="stylesheet" href="../css/tabs.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="./css/tabs.css" type="text/css" media="screen">
     </head>
     <body>
-        <ul class="tabs" style="padding: 2px 0 0 4px">
-            <li>Home</li>
-            <li class="active">About</li>
-            <li>Contact</li>
+        <ul class="abs-tabs" style="padding: 2px 0 0 4px" role="tablist">
+            <li class="abs-tabs__tab" role="presentation">
+                <a role="tab" aria-controls="panel-home" aria-selected="false" tabindex="-1" id="tabs-home">Home</a>
+            </li>
+            <li class="abs-tabs__tab abs-tabs__tab--active">
+                <a role="presentation" aria-selected="true" tabindex="0" id="tabs-about" aria-controls="panel-about">About</a>
+            </li>
+            <li class="abs-tabs__tab" role="presentation">
+                <a href="#panel-contact" role="presentation" aria-selected="false" tabindex="-1" id="tabs-contact" aria-controls="panel-contact">Contact</a>
+            </li>
         </ul>
     </body>
 </html>

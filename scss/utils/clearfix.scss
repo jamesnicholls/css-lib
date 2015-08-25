@@ -1,0 +1,9 @@
+%abs-clearfix {
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+        height: 0;
+        width: 0;
+    }
+}

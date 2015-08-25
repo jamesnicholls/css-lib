@@ -1,0 +1,5 @@
+@import "../../scss/config";
+@import "../../scss/utils/clearfix";
+@import "../../scss/components/sticky-footer";
+
+@include abs-sticky-footer('#content', '#footer', 2.5em);

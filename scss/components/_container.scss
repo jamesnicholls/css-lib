@@ -1,0 +1,8 @@
+.#{$base-namespace}-container {
+    @extend %abs-clearfix;
+    display: block;
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+}

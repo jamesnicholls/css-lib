@@ -1,0 +1,30 @@
+{
+  "name": "css-lib",
+  "version": "1.0.0",
+  "description": "A collection of CSS snippets",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "backstopjs": "^0.5.1",
+    "gulp": "^3.8.10",
+    "gulp-phantomcss": "^0.0.4",
+    "gulp-sass": "^2.0.4",
+    "phantomcss": "^0.10.4"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://james.nicholls@github.com/jamesnicholls/css-lib.git"
+  },
+  "author": " <jamesnicholls11@ft.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamesnicholls/css-lib/issues"
+  },
+  "homepage": "https://github.com/jamesnicholls/css-lib#readme"
+}

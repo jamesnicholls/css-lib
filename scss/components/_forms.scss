@@ -9,7 +9,7 @@ $abs-form-full-width-control-selector: 'input:not([type="radio"]):not([type="che
         box-sizing: border-box;
     }
 
-    $abs-form-full-width-control-selector {
+    #{$abs-form-full-width-control-selector} {
         width: 100%;
 
         &[size] {

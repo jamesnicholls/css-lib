@@ -10,7 +10,7 @@
 //     }),
 var fs = require('fs');
 var server = require('webserver').create();
-var phantomcss = require('../bower_components/phantomcss/phantomcss.js');
+// var phantomcss = require('phantomcss');
 var port = 3128;
 var host = 'http://localhost:' + port + '/';
 var files = fs.list('./').filter(function(file, i) {
@@ -18,20 +18,20 @@ var files = fs.list('./').filter(function(file, i) {
 });
 var i = 0;
 
-phantomcss.init({
-    libraryRoot: '../bower_components/phantomcss',
-    screenshotRoot: './screenshots',
-    failedComparisonsRoot: './failures',
-    fileNameGetter: function(root, filename) {
-        var name = root + fs.separator + filename;
+// phantomcss.init({
+//     libraryRoot: '../node_modules/phantomcss',
+//     screenshotRoot: './screenshots',
+//     failedComparisonsRoot: './failures',
+//     fileNameGetter: function(root, filename) {
+//         var name = root + fs.separator + filename;
 
-        if (fs.isFile(name + '.png')) {
-            return name + '.diff.png';
-        } else {
-            return name + '.png';
-        }
-    }
-});
+//         if (fs.isFile(name + '.png')) {
+//             return name + '.diff.png';
+//         } else {
+//             return name + '.png';
+//         }
+//     }
+// });
 
 server.listen(port, function(request, response) {
     var base = '../',

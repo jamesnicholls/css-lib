@@ -1,0 +1,13 @@
+.#{$base-namespace}-media {
+    @extend %abs-clearfix;
+    display: block;
+
+    &__figure {
+        float: left;
+    }
+
+    &__body {
+        overflow: hidden;
+        display: block;
+    }
+}
